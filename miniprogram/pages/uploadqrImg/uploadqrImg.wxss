@@ -1,0 +1,12 @@
+/* miniprogram/pages/uploadqrImg/uploadqrImg.wxss */
+.card{
+  display: flex
+}
+.card-upload{
+  width: 100rpx;
+  height: 100rpx;
+}
+.card-img{
+  width: 100rpx;
+  height: 100rpx;
+}

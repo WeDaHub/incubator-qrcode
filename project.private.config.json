@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -20,6 +21,18 @@
         {
           "name": "pages/qrcode/qrcode",
           "pathName": "pages/qrcode/qrcode",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/uploadqrImg/uploadqrImg",
+          "pathName": "pages/uploadqrImg/uploadqrImg",
           "scene": null
         }
       ]
