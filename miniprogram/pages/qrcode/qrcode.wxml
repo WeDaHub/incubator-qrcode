@@ -1,0 +1,5 @@
+<view>
+  <!-- 现在二维码 -->
+  <canvas class="oldcode" style="width: 400px; height: 400px;" canvas-id="myQrcode"></canvas>
+  <canvas class="qrcode" style="width: 400px; height: 400px;" canvas-id="qrcode"></canvas>
+</view>
