@@ -1,3 +1,4 @@
+
   <view class="card" wx:for="{{imgList}}" >
     <view class="card-upload" bindtap="doUpload" data-name="{{item}}">
       <text>{{item}}</text>
