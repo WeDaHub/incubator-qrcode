@@ -1,6 +1,5 @@
 /* miniprogram/pages/qrcode/qrcode.wxss */
 .qrcode{
-  /* width: 500rpx;
-  height: 500rpx; */
-  /* display: none; */
+  width: 750rpx;
+  height: 750rpx;
 }

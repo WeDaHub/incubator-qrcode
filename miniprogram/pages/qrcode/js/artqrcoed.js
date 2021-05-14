@@ -1,10 +1,12 @@
 import drawQrcode from './weapp.qrcode.min.js';
+import QRDecode from './decode.js';
+
 var datalist = [];
 var datacol = null;
 var unit = null;
 
 function getqrcode(qrinfo, imginfo) {
-
+  console.log(qrinfo, imginfo)
   var qrcode = drawQrcode({
     width: qrinfo.size,
     height: qrinfo.size,
@@ -36,89 +38,50 @@ function getqrcode(qrinfo, imginfo) {
   // 重新赋值
   datalist = array;
   datacol = qrcode[1];
-  unit = parseInt(qrinfo.size / datacol);
+  unit = Math.ceil(qrinfo.size / datacol);
   var cyt = wx.createCanvasContext(qrinfo.canvasid)
   beginDraw(imginfo, cyt);
 }
 
 function changeqrcode(qrinfo, imginfo) {
-  // var array = [];
-  // var n = 0;
-  // for (let i = 0; i < qrcode[1]; i++) {
-  //   array[i] = [];
-  //   // 首先遍历tr数组
-  //   for (let j = 0; j < qrcode[1]; j++) {
-  //     array[i][j] = []; //第一个是上色情况，第二个是记录情况
-  //     // 遍历每个tr里的td，记录每个td的上色情况；
-  //     if (qrcode[0][n] == 1) {
-  //       array[i][j][0] = 1;
-  //       array[i][j][1] = 0;
-  //     } else {
-  //       array[i][j][0] = 0;
-  //       array[i][j][1] = 1;
-  //     }
-  //     n++;
-  //     // 首先把3个大框框保存下来；
-  //     if ((i < 7 && j < 7) || (i > qrcode[1] - 8 && j < 8) || (i < 8 && j > qrcode[1] - 8)) {
-  //       array[i][j][1] = 1;
-  //     }
-  //   }
-  // }
-  // // 重新赋值
-  // datalist = array;
-  // datacol = qrcode[1];
-  // unit = parseInt(qrinfo.size / datacol);
+  // 解析二维码
   var cyt = wx.createCanvasContext(qrinfo.canvasid)
   cyt.drawImage(qrinfo.img, 0, 0, qrinfo.size, qrinfo.size);
   cyt.draw();
-  setTimeout(() => {
-    wx.canvasGetImageData({
-      canvasId: qrinfo.canvasid,
-      x: 0,
-      y: 0,
-      width: qrinfo.size,
-      height: 1,
-      success(res) {
-        var dark = 0;
-        for (var i = 0; i < res.data.length - 4; i += 4) {
-          if (res.data[i] == 0) {
-            dark++;
-          } else {
-            break
-          }
-        }
-        // 一共有datacol行
-        datacol = parseInt(7 * qrinfo.size / dark);
-        // 一个格子像素是
-        unit = parseInt(dark / 7);
-      }
-    })
-  }, 1000)
-  setTimeout(() => {
-    var alldata = [];
-    wx.canvasGetImageData({
-      canvasId: qrinfo.canvasid,
-      x: 0,
-      y: 0,
-      width: qrinfo.size,
-      height: qrinfo.size,
-      success(res) {
-        var q = 0;
-        var shu=[];
-        for (var i = 0; i < res.data.length-4; i += 4) {
-          if (res.data[i] == 0) {
-            shu[q] = [0]
-          } else {
-            shu[q] = [1]
-          }
-          q = q + 1;
-        }
-        console.log(shu)
-      }
-    })
-  }, 1000)
+  var gettext = getdataimg(qrinfo);
+  gettext.then((res) => {
+    qrinfo.text = res;
+    getqrcode(qrinfo, imginfo)
+  })
+}
 
-  // beginDraw(imginfo, cyt);
+function getdataimg(qrinfo) {
+  return new Promise((resolve, reject) => {
+    var getdata = getimgdata(qrinfo);
+    getdata.then((res) => {
+      var getcodetext = new QRDecode();
+      var text = getcodetext.decodeImageData(res, qrinfo.size, qrinfo.size);
+      qrinfo.text = text;
+      resolve(text);
+    })
+  })
+}
+//获取图片像素点
+function getimgdata(qrinfo) {
+  return new Promise((reslove, reject) => {
+    setTimeout(() => {
+      wx.canvasGetImageData({
+        canvasId: qrinfo.canvasid,
+        x: 0,
+        y: 0,
+        width: qrinfo.size,
+        height: qrinfo.size,
+        success(res) {
+          reslove(res)
+        },
+      })
+    }, 1000)
+  })
 }
 
 function beginDraw(imginfo, cyt) {
@@ -132,7 +95,6 @@ function beginDraw(imginfo, cyt) {
 }
 // 绘制艺术二维码
 function pain(cyt, arrayName, width, height, img) {
-  // console.log(arrayName, width, height, num, type)
   //以Canvas画布上的坐标(10,10)为起始点，绘制图像 //图像的宽度和高度分别缩放到350px和100px
   if (arrayName.length != 0) {
     for (let i = 0; i < arrayName.length; i++) {

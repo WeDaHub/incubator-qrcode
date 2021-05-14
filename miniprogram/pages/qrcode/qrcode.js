@@ -17,7 +17,7 @@ Page({
     onLoad: function (options) {
         var qrinfo = {
             canvasid: 'qrcode',
-            size: 250,
+            size: 200,
             text: '1',
             img:'../../images/qr.png'
         }
@@ -34,7 +34,7 @@ Page({
             row4: '../../images/img/row4.png',
             tian: '../../images/img/tian.png',
         }
-        qrcode.getqrcode(qrinfo, imginfo);
+        // qrcode.getqrcode(qrinfo, imginfo);
         // qrcode.changeqrcode(qrinfo, imginfo);
     }
 })
