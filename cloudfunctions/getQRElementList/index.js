@@ -6,8 +6,9 @@ cloud.init({
 });
 
 //获取数据库引用
-const db = wx.cloud.database();
+const db = cloud.database();
 const collection_qr_element_list = db.collection('QR_Element_LIST');
+const _ = db.command;
 
 // 云函数入口函数
 exports.main = async (event, context) => {
@@ -27,7 +28,7 @@ exports.main = async (event, context) => {
     rs.msg = 'limit和page_index参数不正确';
     return rs;
   }
-
+  limit > 20 && (limit = 20); 
   // 先取出集合记录总数
   const countResult = await collection_qr_element_list.count();
   const total = countResult.total;
