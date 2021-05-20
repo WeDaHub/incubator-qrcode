@@ -39,6 +39,7 @@
   "appid": "wxdb5a9d708acf35ee",
   "projectname": "qrcode",
   "libVersion": "2.16.1",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {
       "list": []
