@@ -1,7 +1,9 @@
+/**
+ * 每位用户每分钟只能上传30张照片
+ */
+
 // 云函数入口文件
-const cloud = require('wx-server-sdk')
-const fs = require('fs');
-const path = require('path');
+const cloud = require('wx-server-sdk');
 
 cloud.init({
   env: 'xier-8gptzwg769125208'
@@ -58,6 +60,11 @@ exports.main = async (event, context) => {
   }else{
     user_record.stage_time = stage_time;
     stage_sum = 0;
+  }
+  if(stage_sum > 30){
+    rs.code = -3;
+    rs.msg = "已超出上传张数,请稍后再试";
+    return rs;
   }
   ++stage_sum;
   const file_path = `user_upload_qr_element/${open_id}_${stage_time}_${stage_sum}_${Math.random() * 10000000 >> 0}`;

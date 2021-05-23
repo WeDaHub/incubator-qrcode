@@ -6,7 +6,9 @@ cloud.init({
 });
 
 //获取数据库引用
-const db = cloud.database();
+const db = cloud.database({
+  throwOnNotFound: false
+});
 const collection_qr_element_list = db.collection('QR_Element_LIST');
 
 // 云函数入口函数
