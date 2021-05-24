@@ -34,7 +34,7 @@ Page({
             row4: '../../images/img/row4.png',
             tian: '../../images/img/tian.png',
         }
-        // qrcode.getqrcode(qrinfo, imginfo);
+        qrcode.getqrcode(qrinfo, imginfo);
         // qrcode.changeqrcode(qrinfo, imginfo);
     }
 })

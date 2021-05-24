@@ -10,7 +10,11 @@ Component({
       },
       size:{
           type:String,
-          value:'60'
+          value:'80'
+      },
+      round:{
+          type:Boolean,
+          value:false
       },
   },
 

@@ -1,2 +1,2 @@
 <!--components/icon/icon.wxml-->
-<view class="icon icon-{{type}}" style="width:{{size}}rpx;height:{{size}}rpx"></view>
+<view class="icon icon-{{type}} {{round?'round':''}}" style="width:{{size}}rpx;height:{{size}}rpx"></view>

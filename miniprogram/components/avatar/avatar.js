@@ -12,6 +12,10 @@ Component({
       type: String,
       value: '4'
     },
+    src: {
+      type: String,
+      value: ''
+    },
   },
 
   /**

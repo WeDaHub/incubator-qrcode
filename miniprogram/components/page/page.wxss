@@ -1,0 +1,7 @@
+/* components/page/page.wxss */
+.page {
+  display: flex;
+  align-items: center;
+  width: 490rpx;
+  justify-content: space-between;
+}

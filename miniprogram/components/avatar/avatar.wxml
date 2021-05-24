@@ -1,4 +1,4 @@
 <!--components/avatar/avatar.wxml-->
 <view class="avatar" style="width:{{size}}rpx ;height:{{size}}rpx; border-width:{{borderWidth}}rpx;">
-    <image src="https://switch-cn.gtgres.com/rebuild-assets/other/wechat-brand/icon/gift.png" mode="aspectFit"></image>
+    <image src="{{src}}" mode="aspectFit"></image>
 </view>

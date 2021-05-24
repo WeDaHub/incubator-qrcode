@@ -1,0 +1,6 @@
+<!--components/page/page.wxml-->
+<view class="page">
+  <icon type="pre" round />
+  <btn>1/23</btn>
+  <icon type="next" round />
+</view>

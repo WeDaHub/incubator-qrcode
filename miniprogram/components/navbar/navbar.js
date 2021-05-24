@@ -13,7 +13,7 @@ Component({
       },
       color: {
           type: String,
-          value: '#000'
+          value: '#fff'
       },
       bgColor: {
           type: String,
