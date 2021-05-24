@@ -2,7 +2,10 @@
   "pages": [
     "pages/qrcode/qrcode",
     "pages/components/components",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/qrlist",
+    "pages/qrlist/qrlist",
+    "pages/myqrlist/myqrlist"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

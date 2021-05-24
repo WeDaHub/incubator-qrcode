@@ -9,31 +9,30 @@ const db = cloud.database({
   throwOnNotFound: false
 });
 const collection_qr_element_list = db.collection('QR_Element_LIST');
+const _ = db.command;
 
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext();
   const open_id = wxContext.OPENID;
-  const qr_id = event.qr_id;
+  const qr_id = event.qr_id_array;
   const rs = {
     code: 0,
     msg: ''
   };
-  if (!qr_id) {
+  if (!qr_id || !qr_id.length) {
     rs.code = -1;
     rs.msg = "未指定qr_id";
     return rs;
   }
-  const db_process = await collection_qr_element_list.doc(qr_id);
+  const db_process = await collection_qr_element_list.where({
+    _id:_.in(qr_id),
+    _open_id:open_id
+  });
   const qr_record = await db_process.get();
-  if (!qr_record.data) {
+  if (!qr_record.data || !qr_record.data.length) {
     rs.code = -2;
-    rs.msg = "未找到此素材包,有可能已经被删除";
-    return rs;
-  }
-  if(qr_record.data._open_id !== open_id){
-    rs.code = -3;
-    rs.msg = "无法确认身份";
+    rs.msg = "未找到_id对应素材包,有可能已经被删除";
     return rs;
   }
   return db_process.remove().then(() => {
