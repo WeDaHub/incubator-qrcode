@@ -1,0 +1,49 @@
+/* components/navbar/navbar.wxss */
+/* components/navigationbar/navigationbar.wxss */
+.nav-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: content-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
+.nav-box .nav-icon {
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  left: 32rpx;
+  background: #fff;
+  border: 2rpx solid #18191F;
+  box-sizing: border-box;
+  border-radius: 48rpx;
+  box-shadow: 0 2rpx 0 1rpx #18191F;
+}
+
+.nav-box .nav-icon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: -1rpx;
+  right: 0;
+  left: 3px;
+  margin: auto;
+  width: 14rpx;
+  height: 14rpx;
+  border-top: 5rpx solid #18191F;
+  border-right: 5rpx solid #18191F;
+  transform: rotate(-135deg);
+  border-radius: 5rpx;
+}
+
+.nav-box .nav-tit {
+  font-weight: normal;
+  font-size: 36rpx;
+  color: #000000;
+  text-align: center;
+}

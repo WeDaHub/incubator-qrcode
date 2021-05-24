@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "btn":"../../components/btn/btn",
+    "cell":"../../components/cell/cell",
+    "contain":"../../components/contain/contain",
+    "icon":"../../components/icon/icon",
+    "navbar":"../../components/navbar/navbar"
+  },
+  "navigationStyle": "custom",
+  "backgroundColor":"#ffbd12",
+  "navigationBarTextStyle": "black"
+}

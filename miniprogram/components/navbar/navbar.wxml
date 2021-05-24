@@ -1,0 +1,12 @@
+<!--components/navigationbar/navigationbar.wxml-->
+<view class="nav-box"
+  style="height:{{navHeight}}px; padding-top:{{navPadding}}px;padding-bottom:{{navPadding/2}}px;">
+  <!-- icon按钮 -->
+  <view class="nav-icon" bindtap="goBack"></view>
+  <!-- 标题文字 -->
+  <view class="nav-tit" style="color:{{color}}">
+    <slot>
+      {{title}}
+    </slot>
+  </view>
+</view>

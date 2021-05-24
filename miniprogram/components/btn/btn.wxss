@@ -1,0 +1,13 @@
+/* components/btn/btn.wxss */
+.btn {
+  display: inline-block;
+  background: #FFFFFF;
+  border: 4rpx solid #000000;
+  box-shadow: 4rpx 4rpx 0rpx #D098FF;
+  border-radius: 40rpx;
+  font-size: 36rpx;
+  text-align: center;
+  padding: 0 30rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+}

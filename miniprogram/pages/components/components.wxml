@@ -1,0 +1,6 @@
+<!--miniprogram/pages/components/components.wxml-->
+<navbar>组件预览</navbar>
+<contain>
+  <btn>按钮</btn>
+  <cell>单元格</cell>
+</contain>

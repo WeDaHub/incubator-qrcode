@@ -1,0 +1,34 @@
+/* components/icon/icon.wxss */
+/* components/icon/icon.wxss */
+
+.icon {
+  border-radius: 100%;
+  width: 60rpx;
+  height: 60rpx;
+  border: 4rpx solid #18191F;
+  box-sizing: border-box;
+}
+
+.icon-arrow {
+  background: url("https://switch-cn.gtgres.com/rebuild-assets/other/wechat-brand/icon/arrow.png"), #FFBD12;
+  background-size: 27rpx 17rpx;
+  background-position: center center;
+  background-repeat: no-repeat;
+  box-shadow: 0 2rpx 0 1rpx #18191F;
+}
+
+.icon-question {
+  background: url("https://switch-cn.gtgres.com/rebuild-assets/other/wechat-brand/icon/question.png"), #00C6AE;
+  background-size: 12rpx 18rpx;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.icon-close {
+  background: url("https://switch-cn.gtgres.com/rebuild-assets/other/wechat-brand/icon/cross.png"), #fff;
+  background-size: 64rpx 64rpx;
+  background-position: center center;
+  background-repeat: no-repeat;
+  box-shadow: 0 2rpx 0 1rpx #18191F;
+}
+

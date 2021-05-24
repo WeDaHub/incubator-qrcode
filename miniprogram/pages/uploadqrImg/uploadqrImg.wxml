@@ -1,7 +1,0 @@
-
-  <view class="card" wx:for="{{imgList}}" >
-    <view class="card-upload" bindtap="doUpload" data-name="{{item}}">
-      <text>{{item}}</text>
-    </view>
-    <image class="card-img" src="{{url}}{{item}}.png" mode="aspectFit"></image>
-  </view>

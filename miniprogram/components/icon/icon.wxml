@@ -1,0 +1,2 @@
+<!--components/icon/icon.wxml-->
+<view class="icon icon-{{type}}" style="width:{{size}}rpx;height:{{size}}rpx"></view>

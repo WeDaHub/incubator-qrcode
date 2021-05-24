@@ -1,0 +1,9 @@
+/* components/cell/cell.wxss */
+.cell{
+width: 100%;
+background: #FFFFFF;
+border: 4rpx solid #000000;
+box-shadow: 4rpx 4rpx 0rpx #000;
+border-radius: 40rpx;
+box-sizing: border-box;
+}

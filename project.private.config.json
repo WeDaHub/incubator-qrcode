@@ -33,6 +33,13 @@
         {
           "name": "pages/uploadqrImg/uploadqrImg",
           "pathName": "pages/uploadqrImg/uploadqrImg",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/components/components",
+          "pathName": "pages/components/components",
+          "query": "",
           "scene": null
         }
       ]
