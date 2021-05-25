@@ -1,1 +1,29 @@
 /* miniprogram/pages/index/index.wxss */
+.bg{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+.bg image{
+  width: 100%;
+  height: 100%;
+}
+/* 标题 */
+.content{
+  position: fixed;
+  height: 400rpx;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.tit{
+  font-size: 72rpx;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 100rpx;
+}
+.btn-1{
+  margin-bottom: 95rpx;
+}

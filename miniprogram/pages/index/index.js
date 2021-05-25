@@ -7,7 +7,16 @@ Page({
   data: {
 
   },
-
+  goqrlist() {
+    wx.navigateTo({
+      url: '/pages/qrlist/qrlist'
+    })
+  },
+  gomylist() {
+    wx.navigateTo({
+      url: '/pages/myqrlist/myqrlist'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

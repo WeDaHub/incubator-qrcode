@@ -41,6 +41,12 @@
           "pathName": "pages/components/components",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/qrlist/qrlist",
+          "pathName": "pages/qrlist/qrlist",
+          "query": "",
+          "scene": null
         }
       ]
     }

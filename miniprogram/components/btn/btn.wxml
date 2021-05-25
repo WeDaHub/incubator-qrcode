@@ -1,4 +1,4 @@
 <!--components/btn/btn.wxml-->
-<view class="btn">
+<view class="btn {{block?'btn--block':''}}">
   <slot></slot>
 </view>
