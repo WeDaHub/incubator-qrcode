@@ -1,4 +1,4 @@
-// miniprogram/pages/myqrlist/myqrlist.js
+// miniprogram/pages/qrlist/qrlist.js
 Page({
 
   /**

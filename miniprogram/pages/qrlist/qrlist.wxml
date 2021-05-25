@@ -1,2 +1,10 @@
 <!--miniprogram/pages/qrlist/qrlist.wxml-->
-<text>miniprogram/pages/qrlist/qrlist.wxml</text>
+<navbar>社区</navbar>
+<contain>
+  <view class="list">
+    <view class="item" wx:for="{{[1,2,3,4,5]}}">
+      <styleitem></styleitem>
+    </view>
+  </view>
+  <page></page>
+</contain>

@@ -1,2 +1,25 @@
-<!--miniprogram/pages/myqrlist/myqrlist.wxml-->
-<text>miniprogram/pages/myqrlist/myqrlist.wxml</text>
+<!--miniprogram/pages/qrlist/qrlist.wxml-->
+<navbar>我的素材</navbar>
+<contain>
+  <view class="opt">
+    <view class="tit">我的素材</view>
+    <view class="opt-box">
+      <icon type="add"></icon>
+      <icon type="setting"></icon>
+      <icon type="delete"></icon>
+      <btn>取消</btn>
+    </view>
+  </view>
+  <view class="list">
+    <view class="item" wx:for="{{[1,2,3,4,5]}}">
+      <view class="select">
+        <view class="mask"></view>
+        <view class="select-icon">
+          <icon type="" round size="60" />
+        </view>
+      </view>
+      <styleitem></styleitem>
+    </view>
+  </view>
+  <page></page>
+</contain>

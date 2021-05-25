@@ -9,6 +9,7 @@
   box-sizing: border-box;
   box-shadow: 4rpx 4rpx 0rpx #D098FF;
   background: #fff;
+  margin: 15rpx;
 }
 .round{
   border-radius: 100%;

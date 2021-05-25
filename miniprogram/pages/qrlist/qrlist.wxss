@@ -1,1 +1,8 @@
 /* miniprogram/pages/qrlist/qrlist.wxss */
+.list{
+  padding: 15rpx;
+}
+.item{
+  margin: 15rpx;
+  display: inline-block;
+}
