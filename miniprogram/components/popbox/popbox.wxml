@@ -1,6 +1,11 @@
 <!--components/popbox/popbox.wxml-->
-<view>
-  <cell>
-
-  </cell>
+<view class="popbox-box">
+    <view class="popbox">
+        <view class="content">
+            <slot></slot>
+        </view>
+        <view class="popbox-close">
+            <icon type="close" size="80" round></icon>
+        </view>
+    </view>
 </view>

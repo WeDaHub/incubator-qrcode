@@ -1,5 +1,45 @@
-<view>
-  <!-- 现在二维码 -->
-  <canvas class="qrcode" style="height:500rpx;width:500rpx" canvas-id="qrcode"></canvas>
-  <canvas class="qrcode" style="height:500rpx;width:500rpx" canvas-id="mycanvas"></canvas>
-</view>
+<navbar>生成页</navbar>
+<contain>
+  <view class="item">
+    <styleitem></styleitem>
+  </view>
+  <view class="opt">
+    <btn>文字生成</btn>
+    <btn>图片生成</btn>
+  </view>
+</contain>
+<!-- 现在二维码 -->
+<popbox wx:if="{{false}}">
+  <view class="popbox">
+    <view class="tit">生成成功:</view>
+    <canvas class="qrcode" style="height:500rpx;width:500rpx" canvas-id="qrcode"></canvas>
+    <view class="opt">
+      <btn>保存</btn>
+    </view>
+  </view>
+</popbox>
+<popbox wx:if="{{false}}">
+  <view class="popbox">
+    <view class="tit">请输入文字内容：</view>
+    <textarea class="input" placeholder="输入二维码文字内容" maxlength="300rpx"></textarea>
+    <view class="opt">
+      <btn>生成</btn>
+      <btn>取消</btn>
+    </view>
+  </view>
+</popbox>
+<popbox wx:if="{{false}}">
+  <view class="popbox">
+    <view class="tit">二维码图片生成：</view>
+    <view class="add-box">
+      <icon wx:if="{{true}}" type="add" />
+      <view wx:else class="img">
+        <image src="../../images/qr.png"></image>
+      </view>
+    </view>
+    <view class="opt">
+      <btn>生成</btn>
+      <btn>取消</btn>
+    </view>
+  </view>
+</popbox>
