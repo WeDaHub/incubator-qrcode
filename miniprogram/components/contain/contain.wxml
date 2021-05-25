@@ -1,4 +1,4 @@
 <!--components/contain/contain.wxml-->
-<view class="contain" style="margin-top:{{navHeight*2}}px;">
+<view class="contain" style="margin-top:{{height}}px;">
   <slot></slot>
 </view>

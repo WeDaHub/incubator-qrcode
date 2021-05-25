@@ -5,14 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    list: []
   },
-
+  goqrcode() {
+    wx.navigateTo({
+      url: '/pages/qrcode/qrcode'
+    })
+  },
+  getdatalist(limit, pageid) {
+    wx.cloud.callFunction({
+      // 需调用的云函数名
+      name: 'getQRElementList',
+      // 传给云函数的参数
+      data: {
+        limit: limit,
+        page_index: pageid,
+      },
+      // 成功回调
+      complete: (res) => {
+        var list = res.result.data.list;
+        console.log(list)
+        this.setData({
+          list: res.result.data.list
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getdatalist(9, 0)
   },
 
   /**

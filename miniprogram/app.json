@@ -4,7 +4,8 @@
     "pages/components/components",
     "pages/index/index",
     "pages/qrlist/qrlist",
-    "pages/myqrlist/myqrlist"
+    "pages/myqrlist/myqrlist",
+    "pages/upload/upload"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

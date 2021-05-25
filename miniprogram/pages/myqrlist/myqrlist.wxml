@@ -2,20 +2,19 @@
 <navbar>我的素材</navbar>
 <contain>
   <view class="opt">
-    <view class="tit">我的素材</view>
-    <view class="opt-box">
       <icon type="add"></icon>
-      <icon type="setting"></icon>
-      <icon type="delete"></icon>
-      <btn>取消</btn>
-    </view>
+      <icon wx:if="{{!ifsetting}}" bindtap="doSetting" type="setting"></icon>
+      <view wx:if="{{ifsetting}}" class="setting">
+        <icon type="delete"></icon>
+        <btn bindtap="cancleSetting">取消</btn>
+      </view>
   </view>
   <view class="list">
     <view class="item" wx:for="{{[1,2,3,4,5]}}">
       <view class="select">
-        <view class="mask"></view>
-        <view class="select-icon">
-          <icon type="" round size="60" />
+        <view wx:if="{{ifsetting}}" class="mask"></view>
+        <view wx:if="{{ifsetting}}" class="select-icon">
+          <icon round size="60" />
         </view>
       </view>
       <styleitem></styleitem>

@@ -1,0 +1,62 @@
+<navbar>素材生成</navbar>
+<contain>
+  <view class="opt">
+    <icon type="question" />
+    <btn bindtap="showpbupload">上传</btn>
+  </view>
+  <view class="list">
+    <view class="item" wx:for="{{list}}">
+      <cell bindtap="uploadimg" data-name="{{item.name}}">
+        <view class="img">
+          <image mode="aspectFit" src="{{item.temporary?item.temporary:item.url}}"></image>
+        </view>
+      </cell>
+      <view class="item-name">
+        <text>{{item.name}}</text>
+        <text wx:if="{{index<=2}}">*</text>
+      </view>
+    </view>
+  </view>
+</contain>
+<popbox wx:if="{{pbupload}}">
+  <view>
+    <view>
+      <input class="input" auto-focus placeholder="给这个风格取个名字吧。" />
+    </view>
+    <view class="txt">您将上传以下图片素材：</view>
+    <view class="img-box">
+      <view wx:for="{{list}}" class="img-item" wx:if="{{item.temporary}}">
+        <image mode="aspectFit" src="{{item.temporary}}"></image>
+      </view>
+    </view>
+    <view class="opt">
+      <btn>上传</btn>
+      <btn>取消</btn>
+    </view>
+  </view>
+</popbox>
+<popbox>
+  <view class="popbox">
+    请按固定的比例设计元素
+    <view class="rule-box">
+      <view class="rule-img">
+        <image mode="widthFix" src="../../images/upload/rule-1.png"></image>
+      </view>
+      <view class="rule-img">
+        <image mode="widthFix" src="../../images/upload/rule-2.png"></image>
+      </view>
+      <view class="rule-img">
+        <image mode="widthFix" src="../../images/upload/rule-3.png"></image>
+      </view>
+      <view class="rule-img">
+        <image mode="widthFix" src="../../images/upload/rule-4.png"></image>
+      </view>
+      <view class="rule-img">
+        <image mode="widthFix" src="../../images/upload/rule-5.png"></image>
+      </view>
+      <view class="rule-img">
+        <image mode="widthFix" src="../../images/upload/rule-6.png"></image>
+      </view>
+    </view>
+  </view>
+</popbox>

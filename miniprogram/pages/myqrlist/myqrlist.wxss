@@ -1,25 +1,29 @@
 /* miniprogram/pages/qrlist/qrlist.wxss */
-.opt{
-display: flex;
-justify-content: space-between;
-align-items: center;
-width: 100%;
-padding: 0 48rpx;
-box-sizing: border-box;
+.opt {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding-left: 48rpx;
+  box-sizing: border-box;
 }
-.tit{
+
+.setting {
+  display: flex;
+  align-items: center;
+}
+
+.tit {
   font-weight: bold;
   font-size: 36rpx;
   color: #fff;
 }
-.opt-box{
-  display: flex;
-  align-items: center;
-}
-.list{
+
+.list {
   padding: 15rpx;
 }
-.item{
+
+.item {
   position: relative;
   width: 330rpx;
   display: inline-block;
@@ -27,18 +31,21 @@ box-sizing: border-box;
   margin: 15rpx;
   border-radius: 32rpx;
 }
-.select{
+
+.select {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 1;
 }
-.select-icon{
+
+.select-icon {
   position: absolute;
   top: 20rpx;
   bottom: 20rpx;
 }
-.mask{
+
+.mask {
   position: absolute;
   width: 100%;
   height: 100%;

@@ -5,9 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    ifsetting: false
   },
-
+  cancleSetting() {
+    this.setData({
+      ifsetting: false
+    })
+  },
+  doSetting() {
+    this.setData({
+      ifsetting: true
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

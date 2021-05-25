@@ -53,6 +53,11 @@
           "pathName": "pages/myqrlist/myqrlist",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/upload/upload",
+          "pathName": "pages/upload/upload",
+          "scene": null
         }
       ]
     }
