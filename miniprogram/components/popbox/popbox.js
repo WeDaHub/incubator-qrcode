@@ -20,17 +20,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    close() {
+      this.triggerEvent('close', false);
+    },
   },
-  ready(){
-      wx.getSystemInfo({
-          success: (e) => {
-              let info = wx.getMenuButtonBoundingClientRect();
-              let height=info.height+info.top*1.5;
-              this.setData({
-                height:height
-              })
-          },
-      });
-  }
 })

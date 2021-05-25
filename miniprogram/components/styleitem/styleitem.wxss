@@ -30,6 +30,7 @@
   font-size: 36rpx;
   font-weight: bold;
   margin-bottom: 10rpx;
+  text-align: left;
 }
 
 .user {

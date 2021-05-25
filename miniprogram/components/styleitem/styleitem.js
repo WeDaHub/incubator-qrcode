@@ -6,7 +6,7 @@ Component({
   properties: {
     cover: {
       type: String,
-      value: '../../images/qr.png'
+      value: ''
     },
     tit: {
       type: String,

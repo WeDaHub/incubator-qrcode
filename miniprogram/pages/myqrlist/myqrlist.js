@@ -5,7 +5,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-    ifsetting: false
+    ifsetting: false,
+    list:[]
+  },
+  getdatalist(limit, pageid) {
+    wx.cloud.callFunction({
+      // 需调用的云函数名
+      name: 'getQRElementList',
+      // 传给云函数的参数
+      data: {
+        limit: limit,
+        page_index: pageid,
+        self: true
+      },
+      // 成功回调
+      complete: (res) => {
+        var list = res.result.data.list;
+        console.log(list)
+        this.setData({
+          list: res.result.data.list
+        })
+      }
+    })
+  },
+  goupload() {
+    wx.navigateTo({
+      url: '/pages/upload/upload'
+    })
   },
   cancleSetting() {
     this.setData({
@@ -21,7 +47,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getdatalist(9, 0)
   },
 
   /**

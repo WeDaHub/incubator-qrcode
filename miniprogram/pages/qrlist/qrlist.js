@@ -7,9 +7,10 @@ Page({
   data: {
     list: []
   },
-  goqrcode() {
+  goqrcode(e) {
+    var data=JSON.stringify(e.currentTarget.dataset.info)
     wx.navigateTo({
-      url: '/pages/qrcode/qrcode'
+      url: `/pages/qrcode/qrcode?info=${data}`
     })
   },
   getdatalist(limit, pageid) {
@@ -20,6 +21,7 @@ Page({
       data: {
         limit: limit,
         page_index: pageid,
+        self:false
       },
       // 成功回调
       complete: (res) => {

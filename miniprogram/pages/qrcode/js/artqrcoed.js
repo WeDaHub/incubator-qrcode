@@ -6,7 +6,6 @@ var datacol = null;
 var unit = null;
 
 function getqrcode(qrinfo, imginfo) {
-  console.log(qrinfo, imginfo)
   var qrcode = drawQrcode({
     width: qrinfo.size,
     height: qrinfo.size,

@@ -1,12 +1,12 @@
 <navbar>素材生成</navbar>
 <contain>
   <view class="opt">
-    <icon type="question" />
+    <icon bindtap="showpbrule" type="question" />
     <btn bindtap="showpbupload">上传</btn>
   </view>
   <view class="list">
-    <view class="item" wx:for="{{list}}">
-      <cell bindtap="uploadimg" data-name="{{item.name}}">
+    <view class="item" wx:for="{{list}}" wx:key="index">
+      <cell bindtap="chooseSingleImg" data-name="{{item.name}}">
         <view class="img">
           <image mode="aspectFit" src="{{item.temporary?item.temporary:item.url}}"></image>
         </view>
@@ -18,7 +18,7 @@
     </view>
   </view>
 </contain>
-<popbox wx:if="{{pbupload}}">
+<popbox wx:if="{{pbupload}}" bind:close="closePbUpload">
   <view>
     <view>
       <input class="input" auto-focus placeholder="给这个风格取个名字吧。" />
@@ -30,12 +30,12 @@
       </view>
     </view>
     <view class="opt">
-      <btn>上传</btn>
-      <btn>取消</btn>
+      <btn bindtap="upload">上传</btn>
+      <btn bindtap="closePbUpload">取消</btn>
     </view>
   </view>
 </popbox>
-<popbox>
+<popbox wx:if="{{pbrule}}" bind:close="closePbRule">
   <view class="popbox">
     请按固定的比例设计元素
     <view class="rule-box">

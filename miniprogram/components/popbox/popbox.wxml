@@ -4,7 +4,7 @@
         <view class="content">
             <slot></slot>
         </view>
-        <view class="popbox-close">
+        <view class="popbox-close" bindtap="close">
             <icon type="close" size="80" round></icon>
         </view>
     </view>

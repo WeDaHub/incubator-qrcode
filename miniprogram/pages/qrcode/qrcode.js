@@ -6,32 +6,84 @@ Page({
      * 页面的初始数据
      */
     data: {
+        styleInfo: null,
+        imginfo: null,
+        qrinfo: {
+            canvasid: 'qrcode',
+            size: 200,
+            text: '',
+            img: ''
+        },
+        pbtxt: false,
+        pbimg: false,
+        pbqr: false
     },
-
+    gettxt(e) {
+        var txt = `qrinfo.text`;
+        this.setData({
+            [txt]: e.detail.value
+        })
+    },
+    showpbtxt() {
+        this.setData({
+            pbtxt: true
+        })
+    },
+    showpbqr() {
+        this.setData({
+            pbqr: true
+        })
+    },
+    showpbimg() {
+        this.setData({
+            pbimg: true
+        })
+    },
+    madeTxt() {
+        this.setData({
+            pbtxt: false,
+            pbqr: true
+        })
+        this.addlikenum(this.data.styleInfo._id);
+        qrcode.getqrcode(this.data.qrinfo, this.data.imginfo);
+    },
+    madeImg() {
+        this.addlikenum(this.data.styleInfo._id);
+        qrcode.changeqrcode(qrinfo, imginfo);
+    },
+    addlikenum(id) {
+        wx.cloud.callFunction({
+            // 需调用的云函数名
+            name: 'reportQRLike',
+            // 传给云函数的参数
+            data: {
+                qr_id: id
+            },
+            // 成功回调
+            complete: (res) => {
+                console.log("add 1")
+            }
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        var qrinfo = {
-            canvasid: 'qrcode',
-            size: 200,
-            text: '1',
-            img:'../../images/qr.png'
+        var info = JSON.parse(options.info);
+        var imgs = {
+            eye: info.eye,
+            one: info.one,
+            tian: info.tian,
+            col2: info.col2,
+            col3: info.col3,
+            col4: info.col4,
+            row2: info.row2,
+            row3: info.row3,
+            row4: info.row4,
         }
-        var imginfo = {
-            eye: '../../images/img/eye.png',
-            col2: '../../images/img/col2.png',
-            col3: '../../images/img/col3.png',
-            col4: '../../images/img/col4.png',
-            one: '../../images/img/one.png',
-            po7: '../../images/img/po7.png',
-            re7: '../../images/img/re7.png',
-            row2: '../../images/img/row2.png',
-            row3: '../../images/img/row3.png',
-            row4: '../../images/img/row4.png',
-            tian: '../../images/img/tian.png',
-        }
-        qrcode.getqrcode(qrinfo, imginfo);
-        // qrcode.changeqrcode(qrinfo, imginfo);
+        this.setData({
+            styleInfo: info,
+            imginfo: imgs
+        })
     }
 })
