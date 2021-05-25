@@ -3,7 +3,6 @@
     "pages/qrcode/qrcode",
     "pages/components/components",
     "pages/index/index",
-    "pages/qrlist",
     "pages/qrlist/qrlist",
     "pages/myqrlist/myqrlist"
   ],
