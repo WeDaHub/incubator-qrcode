@@ -10,7 +10,14 @@ Page({
     total: null,
     limit: 6, //每页数量
     pageid: 1,
-    deletelist: []
+    deletelist: [],
+    misstxt:"数据加载中"
+  },
+  goqrcode(e) {
+    var data = JSON.stringify(e.currentTarget.dataset.info)
+    wx.navigateTo({
+      url: `/pages/qrcode/qrcode?info=${data}`
+    })
   },
   delete() {
     wx.cloud.callFunction({
@@ -35,7 +42,7 @@ Page({
       data: {
         limit: this.data.limit,
         page_index: this.data.pageid - 1,
-        self: false
+        self: true
       },
       // 成功回调
       complete: (res) => {
@@ -47,6 +54,7 @@ Page({
         this.setData({
           total: total,
           list: list,
+          misstxt:list.length==0?'暂无数据':'数据加载中'
         })
       }
     })
@@ -59,7 +67,7 @@ Page({
       data: {
         limit: this.data.limit,
         page_index: pageid - 1,
-        self: false
+        self: true
       },
       // 成功回调
       complete: (res) => {

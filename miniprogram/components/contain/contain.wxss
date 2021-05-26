@@ -1,1 +1,6 @@
 /* components/contain/contain.wxss */
+.contain{
+  height: 100%;
+  overflow: scroll;
+  box-sizing: border-box;
+}

@@ -6,7 +6,8 @@ var datacol = null;
 var unit = null;
 
 function getqrcode(qrinfo, imginfo) {
-  var qrcode = drawQrcode({
+  return new Promise((resolve,reject)=>{
+var qrcode = drawQrcode({
     width: qrinfo.size,
     height: qrinfo.size,
     canvasId: 1,
@@ -37,9 +38,10 @@ function getqrcode(qrinfo, imginfo) {
   // 重新赋值
   datalist = array;
   datacol = qrcode[1];
-  unit = Math.ceil(qrinfo.size / datacol);
+  unit = (qrinfo.size / datacol).toFixed(2);
   var cyt = wx.createCanvasContext(qrinfo.canvasid)
   beginDraw(imginfo, cyt);
+  })
 }
 
 function changeqrcode(qrinfo, imginfo) {

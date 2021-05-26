@@ -68,8 +68,14 @@ Page({
       url: '../../images/upload/tian.png',
     }],
     pbupload: false,
-    pbrule: false
+    pbrule: false,
+    stylename:null
   },
+  gettxt(e) {
+    this.setData({
+      stylename: e.detail.value
+    })
+},
   closePbUpload(e) {
     this.setData({
       pbupload: false
@@ -96,7 +102,7 @@ Page({
       row3: that.data.list[9].fileId,
       row4: that.data.list[10].fileId,
       tian: that.data.list[11].fileId,
-      element_name: 'demo', //必填,素材包名称
+      element_name: that.data.stylename, //必填,素材包名称
       _author_avatar: app.globalData.userInfo.avatarUrl,
       _author_name: app.globalData.userInfo.nickName //必填,用户名称
     }

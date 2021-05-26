@@ -7,7 +7,7 @@ Page({
   data: {
     list: [],
     total: null,
-    limit: 6, //每页数量
+    limit: 4, //每页数量
     pageid: 1,
   },
   goqrcode(e) {

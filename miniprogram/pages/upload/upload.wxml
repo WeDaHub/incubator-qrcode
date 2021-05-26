@@ -21,7 +21,7 @@
 <popbox wx:if="{{pbupload}}" bind:close="closePbUpload">
   <view>
     <view>
-      <input class="input" auto-focus placeholder="给这个风格取个名字吧。" />
+      <input bindinput="gettxt" class="input" value="{{stylename}}" auto-focus placeholder="给这个风格取个名字吧。" />
     </view>
     <view class="txt">您将上传以下图片素材：</view>
     <view class="img-box">

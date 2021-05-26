@@ -1,10 +1,4 @@
 <navbar></navbar>
-<view>
-<image src="cloud://xier-8gptzwg769125208.7869-xier-8gptzwg769125208-1258411243/user_upload_qr_element/oTeIY43xZYk59i136Mnsdo8pNc2E_27029620_1_8751271" alt=""></image>
-  <!-- 现在二维码 -->
-  <canvas class="qrcode" style="height:500rpx;width:500rpx" canvas-id="qrcode"></canvas>
-  <canvas class="qrcode" style="height:500rpx;width:500rpx" canvas-id="mycanvas"></canvas>
-</view>
 <contain>
   <view class="item">
     <styleitem cover="{{styleInfo.cover}}" avatar="{{styleInfo._author_avatar}}" username="{{styleInfo._author_name}}"
@@ -19,9 +13,9 @@
 <popbox wx:if="{{pbqr}}" bind:close="close">
   <view class="popbox">
     <view class="tit">生成成功:</view>
-    <canvas class="qrcode" style="height:500rpx;width:500rpx" canvas-id="qrcode"></canvas>
+    <canvas class="qrcode" style="width:200px;height:200px" canvas-id="qrcode"></canvas>
     <view class="opt">
-      <btn>保存</btn>
+      <btn bindtap="saveimg">保存</btn>
     </view>
   </view>
 </popbox>
@@ -39,13 +33,13 @@
   <view class="popbox">
     <view class="tit">二维码图片生成：</view>
     <view class="add-box" bindtap="uploadimg">
-      <icon wx:if="{{!qrimg}}"  type="add" />
+      <icon wx:if="{{!qrinfo.img}}"  type="add" />
       <view wx:else class="img">
-        <image src="{{qrimg}}"></image>
+        <image src="{{qrinfo.img}}"></image>
       </view>
     </view>
     <view class="opt">
-      <btn bindtap="madeimg">生成</btn>
+      <btn bindtap="madeImg">生成</btn>
       <btn>取消</btn>
     </view>
   </view>

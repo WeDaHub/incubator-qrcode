@@ -1,8 +1,7 @@
 /* miniprogram/pages/qrcode/qrcode.wxss */
 .qrcode{
-  width: 750rpx;
-  height: 750rpx;
-  margin: 30rpx auto;
+  margin: 0 auto;
+  display: block;
 }
 .item{
 margin: 70rpx auto;

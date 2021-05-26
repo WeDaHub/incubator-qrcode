@@ -10,7 +10,7 @@ Page({
         imginfo: null,
         qrinfo: {
             canvasid: 'qrcode',
-            size: 200,
+            size: '',
             text: '',
             img: ''
         },
@@ -18,19 +18,38 @@ Page({
         pbimg: false,
         pbqr: false
     },
-    uploadimg(){
+    saveimg(){
         var that=this;
+        wx.canvasToTempFilePath({
+            x: 0,
+            y: 0,
+            width: that.data.qrinfo.size,
+            height: that.data.qrinfo.size,
+            canvasId:that.data.qrinfo.canvasid,
+            success: function (data) {
+                wx.saveImageToPhotosAlbum({
+                    filePath: data.tempFilePath,
+                    success: (res) => {
+                       console.log("保存成功")
+                    },
+                    fail: (err) => {}
+                })
+            }})
+    },
+    uploadimg() {
+        var that = this;
         wx.chooseImage({
             count: 1,
             sizeType: ['compressed'],
             sourceType: ['album', 'camera'],
             success: function (res) {
-                var img=`qrinfo.img`
+                var img = `qrinfo.img`
                 that.setData({
-                    [img]:res.tempFilePaths[0]
+                    [img]: res.tempFilePaths[0]
                 })
+                console.log(that.data.qrinfo)
             }
-          })
+        })
     },
     gettxt(e) {
         var txt = `qrinfo.text`;
@@ -58,12 +77,20 @@ Page({
             pbtxt: false,
             pbqr: true
         })
-        this.addlikenum(this.data.styleInfo._id);
-        qrcode.getqrcode(this.data.qrinfo, this.data.imginfo);
+        this.getsize().then(()=>{
+            this.addlikenum(this.data.styleInfo._id);
+            qrcode.getqrcode(this.data.qrinfo, this.data.imginfo);
+        });
     },
     madeImg() {
-        this.addlikenum(this.data.styleInfo._id);
-        qrcode.changeqrcode(qrinfo, imginfo);
+        this.setData({
+            pbimg: false,
+            pbqr: true
+        })
+        this.getsize().then(()=>{
+            this.addlikenum(this.data.styleInfo._id);
+            qrcode.changeqrcode(this.data.qrinfo, this.data.imginfo);
+        });
     },
     addlikenum(id) {
         wx.cloud.callFunction({
@@ -86,6 +113,19 @@ Page({
             pbtxt: false
         })
     },
+    getsize() {
+        return new Promise((resolve,reject)=>{
+            var that = this;
+            var query = wx.createSelectorQuery();
+            query.select('.qrcode').boundingClientRect(function (rect) {
+                var qrsize = 'qrinfo.size'
+                that.setData({
+                    [qrsize]: rect.height
+                })
+                resolve();
+            }).exec();
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -105,15 +145,14 @@ Page({
         for (const key in imgs) {
             if (imgs.hasOwnProperty(key)) {
                 const element = imgs[key];
-                if(element){
+                if (element) {
                     wx.cloud.downloadFile({
                         fileID: element
-                      }).then(res => {
-                        console.log(res.tempFilePath,"???")
-                      }).catch(error => {
-                      })
+                    }).then(res => {
+                        imgs[key] = res.tempFilePath;
+                    }).catch(error => {})
                 }
-                
+
             }
         }
         this.setData({

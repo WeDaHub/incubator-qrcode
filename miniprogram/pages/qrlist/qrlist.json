@@ -3,6 +3,7 @@
     "navbar":"../../components/navbar/navbar",
     "styleitem":"../../components/styleitem/styleitem",
     "page":"../../components/page/page",
+    "missbox":"../../components/missbox/missbox",
     "contain":"../../components/contain/contain"
   },
   "navigationStyle": "custom"

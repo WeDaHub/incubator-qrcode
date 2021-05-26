@@ -9,16 +9,17 @@
       <btn bindtap="cancleSetting">取消</btn>
     </view>
   </view>
-  <view class="list">
+  <missbox wx:if="{{list.length==0}}" type="nodata" tit="{{misstxt}}"></missbox>
+  <view wx:else class="list">
     <view class="item" wx:for="{{list}}" wx:key="index">
-      <view class="select">
-        <view wx:if="{{ifsetting}}" class="mask"></view>
-        <view wx:if="{{ifsetting}}" bindtap="select" class="select-icon" data-id="{{item._id}}">
+      <view wx:if="{{ifsetting}}" class="select">
+        <view class="mask"></view>
+        <view bindtap="select" class="select-icon" data-id="{{item._id}}">
           <icon type="{{item.select?'select':''}}" round size="60" />
         </view>
       </view>
-      <styleitem cover="{{item.cover}}" avatar="{{item._author_avatar}}" username="{{item._author_name}}"
-        tit="{{item.element_name}}" num="{{item._like}}"></styleitem>
+      <styleitem bindtap="goqrcode" data-info="{{item}}" cover="{{item.cover}}" avatar="{{item._author_avatar}}"
+        username="{{item._author_name}}" tit="{{item.element_name}}" num="{{item._like}}"></styleitem>
     </view>
   </view>
   <page bind:prepage="prepage" bind:nextpage="nextpage" pageid="{{pageid}}" pagenum="{{total}}"></page>

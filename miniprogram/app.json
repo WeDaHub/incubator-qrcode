@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/qrcode/qrcode",
     "pages/components/components",
-    "pages/index/index",
     "pages/qrlist/qrlist",
     "pages/myqrlist/myqrlist",
     "pages/upload/upload"
