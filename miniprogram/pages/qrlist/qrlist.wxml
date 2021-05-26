@@ -1,2 +1,10 @@
 <!--miniprogram/pages/qrlist/qrlist.wxml-->
-<text>miniprogram/pages/qrlist/qrlist.wxml</text>
+<navbar>社区</navbar>
+<contain>
+  <view class="list">
+    <view class="item" bindtap="goqrcode" wx:for="{{list}}" wx:key="{{index}}">
+      <styleitem cover="{{item.cover}}" avatar="{{item._author_avatar}}" username="{{item._author_name}}" tit="{{item.element_name}}" num="{{item._like}}"></styleitem>
+    </view>
+  </view>
+  <page></page>
+</contain>

@@ -6,6 +6,7 @@
     "icon":"../../components/icon/icon",
     "btn":"../../components/btn/btn",
     "popbox":"../../components/popbox/popbox",
+    "cell":"../../components/cell/cell",
     "contain":"../../components/contain/contain"
   },
   "navigationStyle": "custom"

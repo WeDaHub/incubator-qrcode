@@ -1,2 +1,24 @@
-<!--miniprogram/pages/myqrlist/myqrlist.wxml-->
-<text>miniprogram/pages/myqrlist/myqrlist.wxml</text>
+<!--miniprogram/pages/qrlist/qrlist.wxml-->
+<navbar>我的素材</navbar>
+<contain>
+  <view class="opt">
+      <icon type="add"></icon>
+      <icon wx:if="{{!ifsetting}}" bindtap="doSetting" type="setting"></icon>
+      <view wx:if="{{ifsetting}}" class="setting">
+        <icon type="delete"></icon>
+        <btn bindtap="cancleSetting">取消</btn>
+      </view>
+  </view>
+  <view class="list">
+    <view class="item" wx:for="{{[1,2,3,4,5]}}">
+      <view class="select">
+        <view wx:if="{{ifsetting}}" class="mask"></view>
+        <view wx:if="{{ifsetting}}" class="select-icon">
+          <icon round size="60" />
+        </view>
+      </view>
+      <styleitem></styleitem>
+    </view>
+  </view>
+  <page></page>
+</contain>

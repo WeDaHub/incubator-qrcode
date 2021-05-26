@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "navbar":"../../components/navbar/navbar",
+    "styleitem":"../../components/styleitem/styleitem",
+    "page":"../../components/page/page",
+    "contain":"../../components/contain/contain"
+  },
+  "navigationStyle": "custom"
 }

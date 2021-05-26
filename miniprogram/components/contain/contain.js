@@ -7,17 +7,17 @@ Component({
    * 组件的初始数据
    */
   data: {
-      navHeight: 0,
+      height: 0,
   },
   // 胶囊按钮高度获取
   ready() {
-      wx.getSystemInfo({
-          success: (e) => {
-              let info = wx.getMenuButtonBoundingClientRect();
-              this.setData({
-                  navHeight: info.height,
-              });
-          },
-      });
+    wx.getSystemInfo({
+        success: (e) => {
+            let info = wx.getMenuButtonBoundingClientRect();
+            this.setData({
+                height: (1.5*info.top)+info.height, // 返回按钮与文本的位置
+            });
+        },
+    });
   }
 })

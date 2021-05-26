@@ -1,1 +1,55 @@
-/* miniprogram/pages/myqrlist/myqrlist.wxss */
+/* miniprogram/pages/qrlist/qrlist.wxss */
+.opt {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding-left: 48rpx;
+  box-sizing: border-box;
+}
+
+.setting {
+  display: flex;
+  align-items: center;
+}
+
+.tit {
+  font-weight: bold;
+  font-size: 36rpx;
+  color: #fff;
+}
+
+.list {
+  padding: 15rpx;
+}
+
+.item {
+  position: relative;
+  width: 330rpx;
+  display: inline-block;
+  overflow: hidden;
+  margin: 15rpx;
+  border-radius: 32rpx;
+}
+
+.select {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.select-icon {
+  position: absolute;
+  top: 20rpx;
+  bottom: 20rpx;
+}
+
+.mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+  left: 0;
+  top: 0;
+}

@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "cell":"../cell/cell",
-    "icon":"../icon/icon"
+    "avatar":"../avatar/avatar"
   }
 }

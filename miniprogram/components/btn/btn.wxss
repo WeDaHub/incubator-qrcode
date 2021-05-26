@@ -10,4 +10,10 @@
   padding: 0 30rpx;
   line-height: 80rpx;
   box-sizing: border-box;
+  margin: 15rpx;
+}
+.btn--block{
+  display: block;
+  margin: 15rpx auto;
+  width: 250rpx;
 }

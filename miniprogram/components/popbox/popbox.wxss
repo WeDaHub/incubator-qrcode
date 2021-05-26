@@ -1,1 +1,39 @@
 /* components/popbox/popbox.wxss */
+/* components/popbox/popbox.wxss */
+.popbox-box {
+  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  align-items: center;
+}
+
+.popbox {
+  width: 600rpx;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.content {
+  padding: 50rpx 30rpx;
+  background: #fff;
+  border: 4rpx solid #000000;
+  box-sizing: border-box;
+  box-shadow: 4rpx 4rpx 0rpx #D098FF;
+  background: #fff;
+  border-radius: 32rpx;
+}
+
+/* 按钮 */
+.popbox-box .popbox-close {
+  position: absolute;
+  right: -40rpx;
+  top: -40rpx;
+}

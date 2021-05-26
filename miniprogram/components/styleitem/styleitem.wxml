@@ -1,0 +1,20 @@
+<!--pages/styleitem/styleitem.wxml-->
+<view class="item">
+  <cell>
+    <view class="img">
+      <image src="{{cover}}"></image>
+    </view>
+    <view class="content">
+      <view class="tit">{{tit}}</view>
+      <view class="user">
+        <view class="user-info">
+          <avatar src="{{avatar}}" size="50"></avatar>
+          <view class="user-name">{{username}}</view>
+        </view>
+        <view class="user-num">
+          {{num}}
+        </view>
+      </view>
+    </view>
+  </cell>
+</view>
