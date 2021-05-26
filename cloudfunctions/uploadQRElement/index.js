@@ -1,3 +1,7 @@
+/**
+ * 每位用户每分钟只能上传10套素材
+ */
+
 // 云函数入口文件
 const cloud = require('wx-server-sdk');
 const env = 'xier-8gptzwg769125208';
@@ -8,6 +12,8 @@ const db = cloud.database({
   throwOnNotFound: false
 });
 const collection_qr_element_list = db.collection('QR_Element_LIST');
+const collection_qr_upload_record = db.collection('QRUploadRecord');
+
 const url_root = `cloud://${env}`;
 const checkPicUrl = function (pic_url) {
   if (typeof pic_url !== 'string') return '';
@@ -74,6 +80,48 @@ exports.main = async (event, context) => {
     rs.msg = "eye和one格式错误";
     return rs;
   };
+  //查询数据库此用户该时间段已上传次数
+  const stage_time = Date.now() / 60000 >> 0;
+  let qr_upload_db_process = await collection_qr_upload_record.where({
+    open_id: open_id
+  });
+  let _id;
+  let user_record = await qr_upload_db_process.get();
+  user_record = user_record.data[0];
+  if (user_record) {
+    _id = user_record._id;
+  } else {
+    _id = await collection_qr_upload_record.add({
+      data: {
+        stage_time: stage_time,
+        stage_sum: 0,
+        open_id
+      }
+    }).then(rs => rs._id).catch(err => null);
+    user_record = await qr_upload_db_process.get();
+    user_record = user_record.data[0];
+  }
+  let stage_sum;
+  if (user_record.stage_time === stage_time) {
+    stage_sum = user_record.stage_sum;
+  } else {
+    user_record.stage_time = stage_time;
+    stage_sum = 0;
+  }
+  if (stage_sum > 10) {
+    rs.code = -2;
+    rs.msg = "上传过于频繁，请稍后再试";
+    return rs;
+  }
+  ++stage_sum;
+  collection_qr_upload_record.doc(_id).update({
+    data: {
+      stage_sum,
+      stage_time
+    }
+  });
+
+  //素材包存入数据库
   return collection_qr_element_list.add({
     data: {
       _open_id: open_id,

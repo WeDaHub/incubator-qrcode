@@ -32,9 +32,9 @@ exports.main = async (event, context) => {
     rs.msg = "未获取到用户信息"
     return rs;
   }
-  const stage_time = Date.now() / 60000 >> 0;
-
+  
   //查询数据库此用户该时间段已上传次数
+  const stage_time = Date.now() / 60000 >> 0;
   let db_process = await collection_img_record.where({
     open_id:open_id
   }); 
