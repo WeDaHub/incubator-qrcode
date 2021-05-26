@@ -10,7 +10,7 @@
   </view>
 </contain>
 <!-- 现在二维码 -->
-<popbox wx:if="{{pbqr}}">
+<popbox wx:if="{{pbqr}}" bind:close="close">
   <view class="popbox">
     <view class="tit">生成成功:</view>
     <canvas class="qrcode" style="height:500rpx;width:500rpx" canvas-id="qrcode"></canvas>
@@ -19,7 +19,7 @@
     </view>
   </view>
 </popbox>
-<popbox wx:if="{{pbtxt}}">
+<popbox wx:if="{{pbtxt}}" bind:close="close">
   <view class="popbox">
     <view class="tit">请输入文字内容：</view>
     <textarea bindinput="gettxt" class="input" placeholder="输入二维码文字内容" maxlength="300rpx"></textarea>
@@ -29,13 +29,13 @@
     </view>
   </view>
 </popbox>
-<popbox wx:if="{{pbimg}}">
+<popbox wx:if="{{pbimg}}" bind:close="close">
   <view class="popbox">
     <view class="tit">二维码图片生成：</view>
-    <view class="add-box">
-      <icon wx:if="{{true}}" type="add" />
+    <view class="add-box" bindtap="uploadimg">
+      <icon wx:if="{{!qrimg}}"  type="add" />
       <view wx:else class="img">
-        <image src="../../images/qr.png"></image>
+        <image src="{{qrimg}}"></image>
       </view>
     </view>
     <view class="opt">

@@ -130,7 +130,7 @@ Page({
         filePath: imgPath, //选择图片返回的相对路径
         encoding: 'base64', //编码格式
         success: (res) => {
-          var data = 'data:image/png;base64,' + res.data;
+          var data = res.data;
           resolve(data)
         }, //成功的回调
         fail: (err) => {
@@ -191,7 +191,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData, "|||")
   },
 
   /**

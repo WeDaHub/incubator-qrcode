@@ -6,5 +6,5 @@
       <styleitem cover="{{item.cover}}" avatar="{{item._author_avatar}}" username="{{item._author_name}}" tit="{{item.element_name}}" num="{{item._like}}"></styleitem>
     </view>
   </view>
-  <page></page>
+  <page bind:prepage="prepage" bind:nextpage="nextpage" pageid="{{pageid}}" pagenum="{{total}}"></page>
 </contain>

@@ -1,6 +1,6 @@
 <!--components/page/page.wxml-->
 <view class="page">
-  <icon type="pre" round />
-  <btn>1/23</btn>
-  <icon type="next" round />
+  <icon type="pre" round bindtap="prepage"/>
+  <btn>{{pageid}}/{{pagenum}}</btn>
+  <icon type="next" round bindtap="nextpage"/>
 </view>

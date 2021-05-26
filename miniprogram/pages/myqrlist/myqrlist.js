@@ -6,27 +6,90 @@ Page({
    */
   data: {
     ifsetting: false,
-    list:[]
+    list: [],
+    total: null,
+    limit: 6, //每页数量
+    pageid: 1,
+    deletelist: []
   },
-  getdatalist(limit, pageid) {
+  delete() {
+    wx.cloud.callFunction({
+      // 需调用的云函数名
+      name: 'deleteUserQR',
+      // 传给云函数的参数
+      data: {
+        qr_id_array: this.data.deletelist
+      },
+      // 成功回调
+      complete: (res) => {
+        console.log(res)
+        this.firstgetdatalist();
+      }
+    })
+  },
+  firstgetdatalist() {
     wx.cloud.callFunction({
       // 需调用的云函数名
       name: 'getQRElementList',
       // 传给云函数的参数
       data: {
-        limit: limit,
-        page_index: pageid,
-        self: true
+        limit: this.data.limit,
+        page_index: this.data.pageid - 1,
+        self: false
       },
       // 成功回调
       complete: (res) => {
         var list = res.result.data.list;
-        console.log(list)
+        for (let i = 0; i < list.length; i++) {
+          list[i].select = false;
+        }
+        var total = Math.ceil(res.result.data.total / this.data.limit);
         this.setData({
-          list: res.result.data.list
+          total: total,
+          list: list,
         })
       }
     })
+  },
+  getdatalist(pageid) {
+    wx.cloud.callFunction({
+      // 需调用的云函数名
+      name: 'getQRElementList',
+      // 传给云函数的参数
+      data: {
+        limit: this.data.limit,
+        page_index: pageid - 1,
+        self: false
+      },
+      // 成功回调
+      complete: (res) => {
+        var list = res.result.data.list;
+        for (let i = 0; i < list.length; i++) {
+          list[i].select = false;
+        }
+        var total = Math.ceil(res.result.data.total / this.data.limit);
+        this.setData({
+          total: total,
+          list: list,
+        })
+      }
+    })
+  },
+  prepage() {
+    if (this.data.pageid <= this.data.total && this.data.pageid > 1) {
+      this.setData({
+        pageid: this.data.pageid - 1
+      })
+      this.getdatalist(this.data.pageid)
+    }
+  },
+  nextpage() {
+    if (this.data.pageid < this.data.total) {
+      this.setData({
+        pageid: this.data.pageid + 1
+      })
+      this.getdatalist(this.data.pageid)
+    }
   },
   goupload() {
     wx.navigateTo({
@@ -43,11 +106,38 @@ Page({
       ifsetting: true
     })
   },
+  select(e) {
+    var id = e.currentTarget.dataset.id;
+    console.log(id)
+    for (let i = 0; i < this.data.list.length; i++) {
+      if (this.data.list[i]._id == id) {
+        var selectid = `list[${i}].select`;
+        this.setData({
+          [selectid]: !this.data.list[i].select
+        })
+        break;
+      }
+    }
+    for (let i = 0; i < this.data.deletelist.length; i++) {
+      if (this.data.deletelist[i] == id) {
+        this.data.deletelist.splice(i, 1);
+        this.setData({
+          deletelist: this.data.deletelist
+        })
+      }
+      break;
+    }
+    this.data.deletelist.push(id);
+    this.setData({
+      deletelist: this.data.deletelist
+    })
+    console.log(this.data.deletelist, "??")
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getdatalist(9, 0)
+    this.firstgetdatalist();
   },
 
   /**

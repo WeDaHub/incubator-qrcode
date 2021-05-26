@@ -18,6 +18,20 @@ Page({
         pbimg: false,
         pbqr: false
     },
+    uploadimg(){
+        var that=this;
+        wx.chooseImage({
+            count: 1,
+            sizeType: ['compressed'],
+            sourceType: ['album', 'camera'],
+            success: function (res) {
+                var img=`qrinfo.img`
+                that.setData({
+                    [img]:res.tempFilePaths[0]
+                })
+            }
+          })
+    },
     gettxt(e) {
         var txt = `qrinfo.text`;
         this.setData({
@@ -65,6 +79,13 @@ Page({
             }
         })
     },
+    close() {
+        this.setData({
+            pbqr: false,
+            pbimg: false,
+            pbtxt: false
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -80,6 +101,20 @@ Page({
             row2: info.row2,
             row3: info.row3,
             row4: info.row4,
+        }
+        for (const key in imgs) {
+            if (imgs.hasOwnProperty(key)) {
+                const element = imgs[key];
+                if(element){
+                    wx.cloud.downloadFile({
+                        fileID: element
+                      }).then(res => {
+                        console.log(res.tempFilePath,"???")
+                      }).catch(error => {
+                      })
+                }
+                
+            }
         }
         this.setData({
             styleInfo: info,
