@@ -1,4 +1,12 @@
 /* miniprogram/pages/qrlist/qrlist.wxss */
+.opt {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}
 .list{
   padding: 15rpx;
 }

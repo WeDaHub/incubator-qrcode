@@ -6,41 +6,42 @@ var datacol = null;
 var unit = null;
 
 function getqrcode(qrinfo, imginfo) {
-  return new Promise((resolve,reject)=>{
-var qrcode = drawQrcode({
-    width: qrinfo.size,
-    height: qrinfo.size,
-    canvasId: 1,
-    text: qrinfo.text
-  })
-  var array = [];
-  var n = 0;
-  for (let i = 0; i < qrcode[1]; i++) {
-    array[i] = [];
-    // 首先遍历tr数组
-    for (let j = 0; j < qrcode[1]; j++) {
-      array[i][j] = []; //第一个是上色情况，第二个是记录情况
-      // 遍历每个tr里的td，记录每个td的上色情况；
-      if (qrcode[0][n] == 1) {
-        array[i][j][0] = 1;
-        array[i][j][1] = 0;
-      } else {
-        array[i][j][0] = 0;
-        array[i][j][1] = 1;
-      }
-      n++;
-      // 首先把3个大框框保存下来；
-      if ((i < 7 && j < 7) || (i > qrcode[1] - 8 && j < 8) || (i < 8 && j > qrcode[1] - 8)) {
-        array[i][j][1] = 1;
+  return new Promise((resolve, reject) => {
+    var qrcode = drawQrcode({
+      width: qrinfo.size,
+      height: qrinfo.size,
+      canvasId: 1,
+      text: qrinfo.text
+    })
+    var array = [];
+    var n = 0;
+    for (let i = 0; i < qrcode[1]; i++) {
+      array[i] = [];
+      // 首先遍历tr数组
+      for (let j = 0; j < qrcode[1]; j++) {
+        array[i][j] = []; //第一个是上色情况，第二个是记录情况
+        // 遍历每个tr里的td，记录每个td的上色情况；
+        if (qrcode[0][n] == 1) {
+          array[i][j][0] = 1;
+          array[i][j][1] = 0;
+        } else {
+          array[i][j][0] = 0;
+          array[i][j][1] = 1;
+        }
+        n++;
+        // 首先把3个大框框保存下来；
+        if ((i < 7 && j < 7) || (i > qrcode[1] - 8 && j < 8) || (i < 8 && j > qrcode[1] - 8)) {
+          array[i][j][1] = 1;
+        }
       }
     }
-  }
-  // 重新赋值
-  datalist = array;
-  datacol = qrcode[1];
-  unit = (qrinfo.size / datacol).toFixed(2);
-  var cyt = wx.createCanvasContext(qrinfo.canvasid)
-  beginDraw(imginfo, cyt);
+    // 重新赋值
+    datalist = array;
+    datacol = qrcode[1];
+    unit = (qrinfo.size / datacol).toFixed(2);
+    var cyt = wx.createCanvasContext(qrinfo.canvasid)
+    beginDraw(imginfo, cyt);
+    resolve()
   })
 }
 

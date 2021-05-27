@@ -2,7 +2,6 @@
 <contain>
   <view class="opt">
     <icon bindtap="showpbrule" type="question" />
-    <btn bindtap="showpbupload">上传</btn>
   </view>
   <view class="list">
     <view class="item" wx:for="{{list}}" wx:key="index">
@@ -12,10 +11,13 @@
         </view>
       </cell>
       <view class="item-name">
-        <text>{{item.name}}</text>
-        <text wx:if="{{index<=2}}">*</text>
+        <!-- <text>{{item.name}}</text> -->
+        <!-- <text wx:if="{{index<=2}}">*</text> -->
       </view>
     </view>
+  </view>
+  <view class="opt">
+    <btn bindtap="showpbupload">上传</btn>
   </view>
 </contain>
 <popbox wx:if="{{pbupload}}" bind:close="closePbUpload">

@@ -9,6 +9,13 @@ Page({
     total: null,
     limit: 4, //每页数量
     pageid: 1,
+    misstype:'loading',
+    misstxt:'数据加载中٩(๑❛ᴗ❛๑)۶～'
+  },
+  gomylist() {
+    wx.navigateTo({
+      url: '/pages/myqrlist/myqrlist'
+    })
   },
   goqrcode(e) {
     var data = JSON.stringify(e.currentTarget.dataset.info)
@@ -33,6 +40,8 @@ Page({
         this.setData({
           total: total,
           list: list,
+          misstype:list.length>0?'loading':'nodata',
+          misstxt:list.length>0?'好看的模板在路上٩(๑❛ᴗ❛๑)۶':'数据跑哪里了呢？(╥╯^╰╥)',
         })
       }
     })
@@ -54,6 +63,8 @@ Page({
         this.setData({
           total: total,
           list: list,
+          misstype:list.length>0?'loading':'nodata',
+          misstxt:list.length>0?'好看的模板在路上٩(๑❛ᴗ❛๑)۶':'数据跑哪里了呢？(╥╯^╰╥)',
         })
       }
     })

@@ -1,5 +1,7 @@
 <!--components/icon/icon.wxml-->
 <view class="miss-box">
-  <view class="miss miss-{{type}}" style="width:{{size}}rpx;height:{{size}}rpx"></view>
-  <view class="tit">{{tit}}</view>
+  <view class="miss" style="width:{{size}}rpx;height:{{size}}rpx">
+    <view class="miss-{{type}}"></view>
+  </view>
+  <view class="tit" style=" color:{{dark?'black':'white'}}">{{tit}}</view>
 </view>

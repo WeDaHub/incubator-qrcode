@@ -16,25 +16,27 @@ Page({
         },
         pbtxt: false,
         pbimg: false,
-        pbqr: false
+        pbqr: false,
+        ifmadeqr: false,
     },
-    saveimg(){
-        var that=this;
+    saveimg() {
+        var that = this;
         wx.canvasToTempFilePath({
             x: 0,
             y: 0,
             width: that.data.qrinfo.size,
             height: that.data.qrinfo.size,
-            canvasId:that.data.qrinfo.canvasid,
+            canvasId: that.data.qrinfo.canvasid,
             success: function (data) {
                 wx.saveImageToPhotosAlbum({
                     filePath: data.tempFilePath,
                     success: (res) => {
-                       console.log("保存成功")
+                        console.log("保存成功")
                     },
                     fail: (err) => {}
                 })
-            }})
+            }
+        })
     },
     uploadimg() {
         var that = this;
@@ -73,23 +75,33 @@ Page({
         })
     },
     madeTxt() {
+        var that = this;
         this.setData({
             pbtxt: false,
-            pbqr: true
+            pbqr: true,
         })
-        this.getsize().then(()=>{
+        this.getsize().then(() => {
             this.addlikenum(this.data.styleInfo._id);
-            qrcode.getqrcode(this.data.qrinfo, this.data.imginfo);
+            qrcode.getqrcode(this.data.qrinfo, this.data.imginfo).then(() => {
+                that.setData({
+                    ifmadeqr: true
+                })
+            });
         });
     },
     madeImg() {
+        var that=this;
         this.setData({
             pbimg: false,
             pbqr: true
         })
-        this.getsize().then(()=>{
+        this.getsize().then(() => {
             this.addlikenum(this.data.styleInfo._id);
-            qrcode.changeqrcode(this.data.qrinfo, this.data.imginfo);
+            qrcode.getqrcode(this.data.qrinfo, this.data.imginfo).then(() => {
+                that.setData({
+                    ifmadeqr: true
+                })
+            });
         });
     },
     addlikenum(id) {
@@ -110,11 +122,12 @@ Page({
         this.setData({
             pbqr: false,
             pbimg: false,
-            pbtxt: false
+            pbtxt: false,
+            ifmadeqr:false
         })
     },
     getsize() {
-        return new Promise((resolve,reject)=>{
+        return new Promise((resolve, reject) => {
             var that = this;
             var query = wx.createSelectorQuery();
             query.select('.qrcode').boundingClientRect(function (rect) {

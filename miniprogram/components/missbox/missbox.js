@@ -16,6 +16,10 @@ Component({
           type:String,
           value:'暂无数据哦'
       },
+      dark:{
+          type:Boolean,
+          value:false
+      },
   },
 
   /**
