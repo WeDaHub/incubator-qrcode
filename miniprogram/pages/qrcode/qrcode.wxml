@@ -1,4 +1,4 @@
-<navbar></navbar>
+<navbar pagefrom='{{pagefrom}}'></navbar>
 <contain>
   <view class="item">
     <styleitem cover="{{styleInfo.cover}}" avatar="{{styleInfo._author_avatar}}" username="{{styleInfo._author_name}}"

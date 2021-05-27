@@ -15,8 +15,8 @@ justify-content: center;
 }
 .item{
   width: 210rpx;
-  padding-left: 10rpx;
-  padding-right: 20rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
   display: inline-block;
   margin-bottom: 25rpx;
 }
@@ -26,9 +26,10 @@ justify-content: center;
   color: #fff;
 }
 .img{
-  width: 180rpx;
-  height: 180rpx;
+  width: 175rpx;
+  height: 175rpx;
   margin: 15rpx;
+  box-sizing: border-box;
 }
 .img image{
   width: 100%;

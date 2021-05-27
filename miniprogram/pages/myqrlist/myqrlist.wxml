@@ -1,5 +1,5 @@
 <!--miniprogram/pages/qrlist/qrlist.wxml-->
-<navbar></navbar>
+<navbar pagefrom="index"></navbar>
 <contain>
   <view class="opt">
     <view class="user">
@@ -15,7 +15,7 @@
       </view>
     </view>
   </view>
-  <missbox wx:if="{{list.length==0}}" type="{{misstype}}" tit="{{misstxt}}"></missbox>
+  <missbox wx:if="{{list.length==0}}" type="{{misstype}}" tit="{{misstxt}}" wx:key="index"></missbox>
   <view wx:else class="list">
     <view class="item" wx:for="{{list}}" wx:key="index">
       <view wx:if="{{ifsetting}}" class="select">

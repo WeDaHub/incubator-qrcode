@@ -11,7 +11,7 @@ Page({
     pageid: 1,
     misstype:'loading',
     misstxt:'数据加载中٩(๑❛ᴗ❛๑)۶～',
-    pagefrom:'index'
+    pagefrom:'index',
   },
   gomylist() {
     wx.navigateTo({
@@ -98,7 +98,7 @@ Page({
   onLoad: function (options) {
     if(options.pagefrom){
       this.setData({
-        pagefrom:options.pagefrom
+        pagefrom:options.pagefrom,
       })
     }
     this.firstgetdatalist()

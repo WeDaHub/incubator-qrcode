@@ -70,7 +70,8 @@ Page({
     pbupload: false,
     stylename: null,
     pbtip: false,
-    tip: ""
+    tip: "",
+    isuploaded:false
   },
   gettxt(e) {
     this.setData({
@@ -81,7 +82,7 @@ Page({
     this.setData({
       pbupload: false,
       pbrule: false,
-      pbtip:false
+      pbtip: false
     })
   },
   // 上传风格
@@ -104,7 +105,11 @@ Page({
       _author_avatar: app.globalData.userInfo.avatarUrl,
       _author_name: app.globalData.userInfo.nickName //必填,用户名称
     }
-    console.log(data)
+    this.setData({
+      pbupload: false,
+      isuploaded: false,
+      pbtip: true,
+    })
     wx.cloud.callFunction({
       // 需调用的云函数名
       name: 'uploadQRElement',
@@ -112,20 +117,86 @@ Page({
       data: data,
       // 成功回调
       complete: (res) => {
-        console.log(res, "{{}}")
+        that.setData({
+          isuploaded:true,
+          tip: `٩(๑>◡<๑)۶ :${res.result.msg},你可以继续上传素材哟～`,
+          list: [{
+            name: "cover",
+            temporary: "",
+            fileId: "",
+            url: '../../images/demo.png',
+          }, {
+            name: "eye",
+            temporary: "",
+            fileId: "",
+            url: '../../images/upload/eye.png',
+          }, {
+            name: "one",
+            temporary: "",
+            fileId: "",
+            url: '../../images/upload/one.png',
+          }, {
+            name: "col2",
+            temporary: "",
+            fileId: "",
+            url: '../../images/upload/col2.png',
+          }, {
+            name: "col3",
+            temporary: "",
+            fileId: "",
+            url: '../../images/upload/col3.png',
+          }, {
+            name: "col4",
+            temporary: "",
+            fileId: "",
+            url: '../../images/upload/col4.png',
+          }, {
+            name: "po7",
+            temporary: "",
+            fileId: "",
+            url: '../../images/upload/po7.png',
+          }, {
+            name: "re7",
+            temporary: "",
+            fileId: "",
+            url: '../../images/upload/re7.png',
+          }, {
+            name: "row2",
+            temporary: "",
+            fileId: "",
+            url: '../../images/upload/row2.png',
+          }, {
+            name: "row3",
+            temporary: "",
+            fileId: "",
+            url: '../../images/upload/row3.png',
+          }, {
+            name: "row4",
+            temporary: "",
+            fileId: "",
+            url: '../../images/upload/row4.png',
+          }, {
+            name: "tian",
+            temporary: "",
+            fileId: "",
+            url: '../../images/upload/tian.png',
+          }],
+        })
       }
     })
   },
   showpbupload() {
     if (this.data.list[0].fileId == "" || this.data.list[1].fileId == "" || this.data.list[2].fileId == "") {
       this.setData({
-        tip: '(▼へ▼メ)至少上传前三张示意图哦～',
-        pbtip: true
+        tip: '(▼へ▼メ)至少上传前三张示意图哦～，不明白可点击右上角查看设计指引哦～',
+        pbtip: true,
+        isuploaded:true
       })
       return;
     }
     this.setData({
       pbupload: true,
+      isuploaded:false
     })
   },
   showpbrule() {
@@ -189,7 +260,6 @@ Page({
                   [temporary]: res.tempFilePaths[0],
                   [fileId]: imgfileId
                 })
-                console.log(that.data.list, ">>>>")
               });
             })
             break;

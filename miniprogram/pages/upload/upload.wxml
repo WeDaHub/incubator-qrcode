@@ -1,4 +1,4 @@
-<navbar>素材生成</navbar>
+<navbar pagefrom="myqrlist">素材生成</navbar>
 <contain>
   <view class="opt">
     <icon bindtap="showpbrule" type="question" />
@@ -21,7 +21,8 @@
 <popbox wx:if="{{pbupload}}" bind:close="close">
   <view>
     <view>
-      <input bindinput="gettxt" class="input" value="{{stylename}}" auto-focus placeholder="ヾ(◍°∇°◍)ﾉﾞ取个名字吧。" />
+      <view class="txt">标题：</view>
+      <input bindinput="gettxt" class="input" maxlength="7" value="{{stylename}}" auto-focus placeholder="ヾ(◍°∇°◍)ﾉﾞ取个名字吧。" />
     </view>
     <view class="txt">您将上传以下图片素材：</view>
     <view class="img-box">
@@ -30,11 +31,13 @@
       </view>
     </view>
     <view class="opt">
-      <btn primary bindtap="upload">上传</btn>
-      <btn bindtap="close">取消</btn>
+      <btn primary bindtap="upload" block>上传素材包</btn>
     </view>
   </view>
 </popbox>
 <popbox wx:if="{{pbtip}}" bind:close="close">
-{{tip}}
+  <view wx:if="{{isuploaded}}">
+    {{tip}}
+  </view>
+  <missbox wx:else type="loading" tit="(〃´-ω･) 正在上传中……" dark></missbox>
 </popbox>

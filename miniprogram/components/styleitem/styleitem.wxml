@@ -2,7 +2,7 @@
 <view class="item">
   <cell>
     <view class="img">
-      <image src="{{cover}}"></image>
+      <image mode="aspectFit" src="{{cover}}"></image>
     </view>
     <view class="content">
       <view class="tit">{{tit}}</view>

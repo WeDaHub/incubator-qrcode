@@ -14,12 +14,13 @@ Page({
     pageid: 1,
     deletelist: [],
     misstxt:"数据加载中",
+    misstype:'loading',
     userInfo:null
   },
   goqrcode(e) {
     var data = JSON.stringify(e.currentTarget.dataset.info)
     wx.navigateTo({
-      url: `/pages/qrcode/qrcode?info=${data}`
+      url: `/pages/qrcode/qrcode?info=${data}&pagefrom=myqrlist`
     })
   },
   delete() {
@@ -32,7 +33,9 @@ Page({
       },
       // 成功回调
       complete: (res) => {
-        console.log(res)
+        this.setData({
+          ifsetting:false
+        })
         this.firstgetdatalist();
       }
     })
@@ -44,7 +47,7 @@ Page({
       // 传给云函数的参数
       data: {
         limit: this.data.limit,
-        page_index: this.data.pageid - 1,
+        page_index: 0,
         self: true
       },
       // 成功回调
@@ -57,7 +60,8 @@ Page({
         this.setData({
           total: total,
           list: list,
-          misstxt:list.length==0?'暂无数据':'数据加载中'
+          misstxt:list.length==0?'暂无数据':'数据加载中',
+          misstype:list.length==0?'nodata':'loading',
         })
       }
     })

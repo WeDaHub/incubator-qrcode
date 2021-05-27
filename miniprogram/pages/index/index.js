@@ -34,13 +34,11 @@ Page({
     wx.removeStorage({
       key: 'qrimg',
       success (res) {
-        console.log(res)
       }
     })
     wx.removeStorage({
       key: 'qrtxt',
       success (res) {
-        console.log(res)
       }
     })
   },

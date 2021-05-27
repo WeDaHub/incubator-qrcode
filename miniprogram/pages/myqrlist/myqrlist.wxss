@@ -1,7 +1,9 @@
 /* miniprogram/pages/qrlist/qrlist.wxss */
-.opt-box{
+.opt{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32rpx;
 }
 .user{
   text-align: center;
@@ -12,12 +14,6 @@
   color: #fff;
   line-height: 50rpx;
   font-size: 36rpx;
-}
-.opt {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
 }
 
 .setting {
