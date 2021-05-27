@@ -7,7 +7,7 @@ Page({
   data: {
     list: [],
     total: null,
-    limit: 4, //每页数量
+    limit: 6, //每页数量
     pageid: 1,
     misstype:'loading',
     misstxt:'数据加载中٩(๑❛ᴗ❛๑)۶～',

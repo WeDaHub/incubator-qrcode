@@ -26,7 +26,7 @@
     </view>
     <view class="txt">您将上传以下图片素材：</view>
     <view class="img-box">
-      <view wx:for="{{list}}" class="img-item" wx:if="{{item.temporary}}">
+      <view wx:for="{{list}}" class="img-item" wx:if="{{item.temporary}}" wx:key="index">
         <image mode="aspectFit" src="{{item.temporary}}"></image>
       </view>
     </view>
