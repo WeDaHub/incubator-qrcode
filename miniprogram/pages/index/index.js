@@ -7,6 +7,16 @@ Page({
   data: {
 
   },
+  gotxtmade() {
+    wx.navigateTo({
+      url: '/pages/txtmade/txtmade'
+    })
+  },
+  goimgmade() {
+    wx.navigateTo({
+      url: '/pages/imgmade/imgmade'
+    })
+  },
   goqrlist() {
     wx.navigateTo({
       url: '/pages/qrlist/qrlist'
@@ -21,7 +31,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.removeStorage({
+      key: 'qrimg',
+      success (res) {
+        console.log(res)
+      }
+    })
+    wx.removeStorage({
+      key: 'qrtxt',
+      success (res) {
+        console.log(res)
+      }
+    })
   },
 
   /**

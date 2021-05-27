@@ -3,12 +3,12 @@
 <navbar>文字生成二维码</navbar>
 <contain>
   <view class="tit">请输入文字内容：</view>
-  <textarea bindinput="gettxt" class="input" value="qrinfo.text" placeholder="输入二维码文字内容" maxlength="300rpx"></textarea>
+  <textarea bindinput="gettxt" class="input" value="{{qrinfo.text}}" placeholder="٩(๑❛ᴗ❛๑)۶：文字,网站都可以哟～" maxlength="300rpx"></textarea>
   <view class="tit">请选择二维码风格：</view>
   <view class='content'>
-    <view wx:if="{{styleqr!=null}}" bindtap="goqrlist" class="item-qr">
-      <styleitem cover="{{styleqr.cover}}" avatar="{{styleqr._author_avatar}}" username="{{styleqr._author_name}}"
-        tit="{{styleqr.element_name}}" num="{{styleqr._like}}"></styleitem>
+    <view bindtap="goqrlist" wx:if="{{styleInfo!=null}}" class="item-qr">
+      <styleitem cover="{{styleInfo.cover}}" avatar="{{styleInfo._author_avatar}}" username="{{styleInfo._author_name}}"
+        tit="{{styleInfo.element_name}}" num="{{styleInfo._like}}"></styleitem>
     </view>
     <view wx:else class="item" bindtap="goqrlist">
       <cell>
@@ -18,7 +18,7 @@
       </cell>
     </view>
   </view>
-  <btn primary block>生成</btn>
+  <btn bindtap="madeTxt" primary block>生成</btn>
 </contain>
 <popbox wx:if="{{pbqr}}" bind:close="close">
   <view wx:if="{{!ifmadeqr}}" class="missbox">
@@ -30,4 +30,7 @@
       <btn bindtap="saveimg">保存</btn>
     </view>
   </view>
+</popbox>
+<popbox wx:if="{{pbtip}}" bind:close="close">
+  {{tip}}
 </popbox>

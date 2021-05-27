@@ -85,3 +85,10 @@ content {
   background: #fff;
   z-index: 9;
 }
+.tip{
+  font-size: 24rpx;
+  color: #fff;
+  margin-left: 32rpx;
+  margin-bottom: 32rpx;
+  line-height: 24rpx;
+}

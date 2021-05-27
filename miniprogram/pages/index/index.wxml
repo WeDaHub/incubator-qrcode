@@ -2,13 +2,13 @@
 <view class="content">
   <image mode="widthFix" src="../../images/logo.png"></image>
   <view class="method">
-    <btn>
+    <btn bindtap="gotxtmade">
       <view class="method-item">
         <icon type="txt" size="90" border="{{false}}"></icon>
         <view class="method-item-txt">二维码生成</view>
       </view>
     </btn>
-    <btn>
+    <btn bindtap="goimgmade">
       <view class="method-item">
         <icon type="qr" size="90" border="{{false}}"></icon>
         <view class="method-item-txt">二维码美化</view>

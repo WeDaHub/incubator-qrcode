@@ -4,9 +4,19 @@
     <styleitem cover="{{styleInfo.cover}}" avatar="{{styleInfo._author_avatar}}" username="{{styleInfo._author_name}}"
       tit="{{styleInfo.element_name}}" num="{{styleInfo._like}}"></styleitem>
   </view>
-  <view class="opt">
-    <btn bindtap="showpbtxt">生成二维码</btn>
-    <btn bindtap="showpbimg">二维码美化</btn>
+  <view class="method">
+    <btn bindtap="showpbtxt">
+      <view class="method-item">
+        <icon type="txt" size="90" border="{{false}}"></icon>
+        <view class="method-item-txt">二维码生成</view>
+      </view>
+    </btn>
+    <btn bindtap="showpbimg">
+      <view class="method-item">
+        <icon type="qr" size="90" border="{{false}}"></icon>
+        <view class="method-item-txt">二维码美化</view>
+      </view>
+    </btn>
   </view>
 </contain>
 <!-- 现在二维码 -->
@@ -17,7 +27,7 @@
   <view class="popbox">
     <canvas class="qrcode" style="width:200px;height:200px" canvas-id="qrcode"></canvas>
     <view wx:if="{{ifmadeqr}}" class="opt">
-      <btn bindtap="saveimg">保存</btn>
+      <btn primary bindtap="saveimg">保存</btn>
     </view>
   </view>
 </popbox>
@@ -26,7 +36,7 @@
     <view class="tit">请输入文字内容：</view>
     <textarea bindinput="gettxt" class="input" placeholder="输入二维码文字内容" maxlength="300rpx"></textarea>
     <view class="opt" wx:if="{{qrinfo.text!=''}}">
-      <btn bindtap="madeTxt">生成二维码</btn>
+      <btn primary bindtap="madeTxt">生成二维码</btn>
     </view>
   </view>
 </popbox>
@@ -39,8 +49,8 @@
         <image src="{{qrinfo.img}}"></image>
       </view>
     </view>
-    <view  wx:if="{{qrinfo.img}}" class="opt">
-      <btn bindtap="madeImg">美化二维码</btn>
+    <view wx:if="{{qrinfo.img}}" class="opt">
+      <btn primary bindtap="madeImg">美化二维码</btn>
     </view>
   </view>
 </popbox>

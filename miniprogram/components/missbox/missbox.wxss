@@ -41,7 +41,7 @@
   width: 40rpx !important;
   height: 40rpx !important;
   border-radius: 40rpx;
-  background-color: #D098FF;
+  background-color: #FFE142;
   position: relative;
   animation: dot 1s linear infinite forwards;
   animation-delay: .2s;
@@ -53,7 +53,7 @@
   width: 40rpx;
   height: 40rpx;
   border-radius: 40rpx;
-  background-color: #D098FF;
+  background-color: #FFE142;
   left: 100rpx;
   animation: dot 1s linear infinite;
 
@@ -65,7 +65,7 @@
   width: 40rpx;
   height: 40rpx;
   border-radius: 40rpx;
-  background-color: #D098FF;
+  background-color: #FFE142;
   right: 100rpx;
   animation: dot 1s linear infinite forwards;
   animation-delay: .4s;
@@ -78,6 +78,6 @@
   }
 
   to {
-      background-color: #D098FF;
+      background-color: #FFE142;
   }
 }

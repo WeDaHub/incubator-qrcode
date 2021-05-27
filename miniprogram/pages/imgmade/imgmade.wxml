@@ -3,6 +3,7 @@
 <navbar>美化二维码</navbar>
 <contain>
   <view class="tit">上传黑白二维码：</view>
+  <view class="tip">٩(๑❛ᴗ❛๑)۶一定是要清晰能识别的黑白二维码哦～</view>
   <view class="upload-img" bindtap="uploadimg">
     <icon wx:if="{{!qrinfo.img}}" type="add" round />
     <image wx:else mode="aspectFit" src="{{qrinfo.img}}"></image>
@@ -33,4 +34,7 @@
       <btn bindtap="saveimg">保存</btn>
     </view>
   </view>
+</popbox>
+<popbox wx:if="{{pbtip}}" bind:close="close">
+{{tip}}
 </popbox>

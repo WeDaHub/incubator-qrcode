@@ -48,7 +48,16 @@ content {
 .icon-add {
   margin: 150rpx 0;
 }
-.missbox{
+.qrcode {
+  margin: 30rpx auto;
+  display: block;
+}
+
+.opt {
+  text-align: center;
+}
+
+.missbox {
   position: absolute;
   width: 90%;
   left: 0;
@@ -57,4 +66,5 @@ content {
   bottom: 0;
   height: 90%;
   background: #fff;
-  z-index:9}
+  z-index: 9;
+}

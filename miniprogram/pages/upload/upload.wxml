@@ -16,9 +16,7 @@
       </view>
     </view>
   </view>
-  <view class="opt">
-    <btn bindtap="showpbupload">上传</btn>
-  </view>
+    <btn primary block bindtap="showpbupload">上传</btn>
 </contain>
 <popbox wx:if="{{pbupload}}" bind:close="closePbUpload">
   <view>
@@ -61,4 +59,7 @@
       </view>
     </view>
   </view>
+</popbox>
+<popbox wx:if="{{pbtip}}" bind:close="close">
+{{tip}}
 </popbox>

@@ -16,6 +16,9 @@ Page({
       img: ''
     },
     ifmadeqr: false,
+    pbqr:false,
+    pbtip: false,
+    tip: ""
   },
   addlikenum(id) {
     wx.cloud.callFunction({
@@ -65,6 +68,22 @@ Page({
   },
   async madeImg() {
     var that = this;
+    if (this.data.qrinfo.img == '') {
+      this.setData({
+        tip: '(▼へ▼メ)请上传黑白二维码吖～',
+        pbtip: true
+      })
+      return
+    }
+    if (this.data.styleInfo == null) {
+      this.setData({
+        tip: 'o(▼皿▼メ;)o请选择二维码风格吖～',
+        pbtip: true
+      })
+      return
+    }
+
+
     this.setData({
       pbimg: false,
       pbqr: true
@@ -78,12 +97,6 @@ Page({
         })
       });
     });
-  },
-  gettxt(e) {
-    var txt = `qrinfo.text`;
-    this.setData({
-      [txt]: e.detail.value
-    })
   },
   uploadimg() {
     var that = this;
@@ -110,10 +123,11 @@ Page({
   },
   close() {
     this.setData({
-        pbqr: false,
-        ifmadeqr:false
+      pbqr:false,
+      pbtip: false,
+      ifmadeqr: false
     })
-},
+  },
   async manageimgs() {
     var info = this.data.styleInfo;
     var imgs = {

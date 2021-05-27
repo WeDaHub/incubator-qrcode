@@ -1,37 +1,45 @@
 /* miniprogram/pages/qrcode/qrcode.wxss */
-.qrcode{
+.qrcode {
   margin: 30rpx auto;
   display: block;
 }
-.item{
-margin: 70rpx auto;
-text-align: center;
-}
-.popbox{
+
+.item {
+  margin: 70rpx auto;
   text-align: center;
 }
-.tit{
+
+.popbox {
+  text-align: center;
+}
+
+.tit {
   font-size: 36rpx;
   font-weight: bold;
   text-align: left;
   margin-bottom: 40rpx;
 }
-.opt{
+
+.opt {
   text-align: center;
 }
-.add-box{
+
+.add-box {
   margin: 20rpx;
 }
-.img{
+
+.img {
   width: 250rpx;
   height: 250rpx;
   margin: 0 auto;
 }
-.img image{
+
+.img image {
   width: 100%;
   height: 100%;
 }
-.input{
+
+.input {
   border-radius: 10rpx;
   border: 4rpx solid #000000;
   box-sizing: border-box;
@@ -47,7 +55,8 @@ text-align: center;
   text-align: left;
   padding: 20rpx;
 }
-.missbox{
+
+.missbox {
   position: absolute;
   width: 90%;
   left: 0;
@@ -57,4 +66,23 @@ text-align: center;
   height: 90%;
   background: #fff;
   z-index: 9;
+}
+
+.method {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.method-item {
+  font-weight: bold;
+  height: 180rpx;
+  padding-top: 30rpx;
+  width: 150rpx;
+}
+
+.method-item-txt {
+  font-size: 30rpx;
+  line-height: 23rpx;
+  font-weight: bold;
 }

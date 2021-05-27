@@ -1,5 +1,5 @@
 <!--miniprogram/pages/qrlist/qrlist.wxml-->
-<navbar></navbar>
+<navbar>我的</navbar>
 <contain>
   <view class="user">
     <avatar size="150" src="{{userInfo.avatarUrl}}"></avatar>
@@ -13,7 +13,7 @@
       <btn bindtap="cancleSetting">取消</btn>
     </view>
   </view>
-  <missbox wx:if="{{list.length==0}}" type="nodata" tit="{{misstxt}}"></missbox>
+  <missbox wx:if="{{list.length==0}}" type="{{misstype}}" tit="{{misstxt}}"></missbox>
   <view wx:else class="list">
     <view class="item" wx:for="{{list}}" wx:key="index">
       <view wx:if="{{ifsetting}}" class="select">

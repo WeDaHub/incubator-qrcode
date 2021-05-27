@@ -69,7 +69,9 @@ Page({
     }],
     pbupload: false,
     pbrule: false,
-    stylename:null
+    stylename:null,
+    pbtip: false,
+    tip: ""
   },
   gettxt(e) {
     this.setData({
@@ -119,6 +121,7 @@ Page({
     })
   },
   showpbupload() {
+    if(this.)
     this.setData({
       pbupload: true,
     })
