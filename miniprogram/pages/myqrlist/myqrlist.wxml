@@ -1,6 +1,10 @@
 <!--miniprogram/pages/qrlist/qrlist.wxml-->
-<navbar>我的素材</navbar>
+<navbar></navbar>
 <contain>
+  <view class="user">
+    <avatar size="150" src="{{userInfo.avatarUrl}}"></avatar>
+    <view class="user-name">{{userInfo.nickName}}</view>
+  </view>
   <view class="opt">
     <icon bindtap="goupload" type="add"></icon>
     <icon wx:if="{{!ifsetting}}" bindtap="doSetting" type="setting"></icon>

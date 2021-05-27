@@ -1,10 +1,18 @@
 /* miniprogram/pages/qrlist/qrlist.wxss */
+.user{
+  text-align: center;
+}
+.user-name{
+  font-weight: bold;
+  color: #fff;
+  line-height: 50rpx;
+  font-size: 36rpx;
+}
 .opt {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   width: 100%;
-  padding-left: 48rpx;
   box-sizing: border-box;
 }
 

@@ -7,6 +7,10 @@ Component({
     block: {
       type: Boolean,
       value: false
+    },
+    primary: {
+      type: Boolean,
+      value: false
     }
   },
 

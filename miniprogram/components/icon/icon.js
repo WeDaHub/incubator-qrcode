@@ -16,6 +16,10 @@ Component({
           type:Boolean,
           value:false
       },
+      border:{
+          type:Boolean,
+          value:true
+      },
   },
 
   /**

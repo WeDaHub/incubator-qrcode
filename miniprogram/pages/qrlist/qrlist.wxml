@@ -1,9 +1,6 @@
 <!--miniprogram/pages/qrlist/qrlist.wxml-->
+<navbar>社区</navbar>
 <contain>
-  <view class="opt">
-    <btn bindtap="gomylist">自定义风格</btn>
-    <icon type="question"></icon>
-  </view>
   <missbox wx:if="{{list.length==0}}" type="{{misstype}}" tit="{{misstxt}}"></missbox>
   <view wx:else class="list">
     <view class="item" bindtap="goqrcode" data-info="{{item}}" wx:for="{{list}}" wx:key="{{index}}">

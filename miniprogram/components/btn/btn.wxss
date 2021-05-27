@@ -1,7 +1,6 @@
 /* components/btn/btn.wxss */
 .btn {
   display: inline-block;
-  background: #FFFFFF;
   border: 4rpx solid #000000;
   box-shadow: 4rpx 4rpx 0rpx #D098FF;
   border-radius: 40rpx;
@@ -16,4 +15,10 @@
   display: block;
   margin: 15rpx auto;
   width: 250rpx;
+}
+.btn-default{
+  background: #FFFFFF;
+}
+.btn--primary{
+  background: #FFE142;
 }

@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "btn":"../../components/btn/btn"
+    "btn":"../../components/btn/btn",
+    "icon":"../../components/icon/icon"
   },
   "navigationStyle": "custom"
 }

@@ -1,4 +1,6 @@
 // miniprogram/pages/qrlist/qrlist.js
+var app = getApp();
+
 Page({
 
   /**
@@ -11,7 +13,8 @@ Page({
     limit: 6, //每页数量
     pageid: 1,
     deletelist: [],
-    misstxt:"数据加载中"
+    misstxt:"数据加载中",
+    userInfo:null
   },
   goqrcode(e) {
     var data = JSON.stringify(e.currentTarget.dataset.info)
@@ -145,6 +148,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      userInfo:app.globalData.userInfo
+    })
+    console.log(this.data.userInfo)
     this.firstgetdatalist();
   },
 

@@ -1,11 +1,32 @@
 <!--miniprogram/pages/index/index.wxml-->
-<view class="bg">
-  <image mode="aspectFill" src="../../images/index.png"></image>
-</view>
 <view class="content">
-  <view class="tit">艺术二维码生成器</view>
-  <view class="btn-1" bindtap="goqrlist">
-    <btn block>社区</btn>
+  <image mode="widthFix" src="../../images/logo.png"></image>
+  <view class="method">
+    <btn>
+      <view class="method-item">
+        <icon type="txt" size="90" border="{{false}}"></icon>
+        <view class="method-item-txt">二维码生成</view>
+      </view>
+    </btn>
+    <btn>
+      <view class="method-item">
+        <icon type="qr" size="90" border="{{false}}"></icon>
+        <view class="method-item-txt">二维码美化</view>
+      </view>
+    </btn>
   </view>
-  <btn block bindtap="gomylist">我的</btn>
+  <view class="method">
+    <btn bindtap="goqrlist">
+      <view class="method-item">
+        <icon type="home" size="90" border="{{false}}"></icon>
+        <view class="method-item-txt">社区</view>
+      </view>
+    </btn>
+    <btn bindtap="gomylist">
+      <view class="method-item">
+        <icon type="mine" size="90" border="{{false}}"></icon>
+        <view class="method-item-txt">我的</view>
+      </view>
+    </btn>
+  </view>
 </view>

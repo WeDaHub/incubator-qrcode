@@ -5,6 +5,7 @@
     "page":"../../components/page/page",
     "icon":"../../components/icon/icon",
     "btn":"../../components/btn/btn",
+    "avatar":"../../components/avatar/avatar",
     "missbox":"../../components/missbox/missbox",
     "contain":"../../components/contain/contain"
   },
