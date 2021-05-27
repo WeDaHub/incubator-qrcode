@@ -5,7 +5,9 @@
     "pages/components/components",
     "pages/qrlist/qrlist",
     "pages/myqrlist/myqrlist",
-    "pages/upload/upload"
+    "pages/upload/upload",
+    "pages/txtmade/txtmade",
+    "pages/imgmade/imgmade"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

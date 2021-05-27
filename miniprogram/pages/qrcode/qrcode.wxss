@@ -2,7 +2,6 @@
 .qrcode{
   margin: 30rpx auto;
   display: block;
-
 }
 .item{
 margin: 70rpx auto;

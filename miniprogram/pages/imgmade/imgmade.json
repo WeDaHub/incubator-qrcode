@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "navbar":"../../components/navbar/navbar",
+    "styleitem":"../../components/styleitem/styleitem",
+    "page":"../../components/page/page",
+    "cell":"../../components/cell/cell",
+    "icon":"../../components/icon/icon",
+    "btn":"../../components/btn/btn",
+    "missbox":"../../components/missbox/missbox",
+    "popbox":"../../components/popbox/popbox",
+    "contain":"../../components/contain/contain"
+  },
+  "navigationStyle": "custom"
+}

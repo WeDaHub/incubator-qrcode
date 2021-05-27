@@ -1,5 +1,5 @@
 // miniprogram/pages/qrcode/qrcode.js
-import qrcode from './js/artqrcoed.js'
+import qrcode from '../../js/artqrcoed.js'
 Page({
 
     /**

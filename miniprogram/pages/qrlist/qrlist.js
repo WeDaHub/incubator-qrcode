@@ -10,7 +10,8 @@ Page({
     limit: 4, //每页数量
     pageid: 1,
     misstype:'loading',
-    misstxt:'数据加载中٩(๑❛ᴗ❛๑)۶～'
+    misstxt:'数据加载中٩(๑❛ᴗ❛๑)۶～',
+    pagefrom:'index'
   },
   gomylist() {
     wx.navigateTo({
@@ -19,9 +20,15 @@ Page({
   },
   goqrcode(e) {
     var data = JSON.stringify(e.currentTarget.dataset.info)
-    wx.navigateTo({
-      url: `/pages/qrcode/qrcode?info=${data}`
-    })
+    if(this.data.pagefrom=='index'){
+      wx.navigateTo({
+        url: `/pages/qrcode/qrcode?info=${data}`
+      })
+    }else{
+        wx.navigateTo({
+          url: `/pages/${this.data.pagefrom}/${this.data.pagefrom}?info=${data}`
+        })
+    }
   },
   firstgetdatalist() {
     wx.cloud.callFunction({
@@ -89,6 +96,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(options.pagefrom){
+      this.setData({
+        pagefrom:options.pagefrom
+      })
+    }
     this.firstgetdatalist()
   },
 

@@ -1,0 +1,33 @@
+<!--miniprogram/pages/txtmade/txtmad.wxml-->
+<!--miniprogram/pages/qrlist/qrlist.wxml-->
+<navbar>文字生成二维码</navbar>
+<contain>
+  <view class="tit">请输入文字内容：</view>
+  <textarea bindinput="gettxt" class="input" value="qrinfo.text" placeholder="输入二维码文字内容" maxlength="300rpx"></textarea>
+  <view class="tit">请选择二维码风格：</view>
+  <view class='content'>
+    <view wx:if="{{styleqr!=null}}" bindtap="goqrlist" class="item-qr">
+      <styleitem cover="{{styleqr.cover}}" avatar="{{styleqr._author_avatar}}" username="{{styleqr._author_name}}"
+        tit="{{styleqr.element_name}}" num="{{styleqr._like}}"></styleitem>
+    </view>
+    <view wx:else class="item" bindtap="goqrlist">
+      <cell>
+        <view class="icon-add">
+          <icon type="add" round></icon>
+        </view>
+      </cell>
+    </view>
+  </view>
+  <btn primary block>生成</btn>
+</contain>
+<popbox wx:if="{{pbqr}}" bind:close="close">
+  <view wx:if="{{!ifmadeqr}}" class="missbox">
+    <missbox dark type="loading" tit="正在生成中(๑╹◡╹)ﾉ“”“"></missbox>
+  </view>
+  <view class="popbox">
+    <canvas class="qrcode" style="width:200px;height:200px" canvas-id="qrcode"></canvas>
+    <view wx:if="{{ifmadeqr}}" class="opt">
+      <btn bindtap="saveimg">保存</btn>
+    </view>
+  </view>
+</popbox>

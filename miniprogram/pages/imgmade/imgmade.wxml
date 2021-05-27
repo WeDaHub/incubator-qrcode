@@ -1,0 +1,36 @@
+<!--miniprogram/pages/txtmade/txtmad.wxml-->
+<!--miniprogram/pages/qrlist/qrlist.wxml-->
+<navbar>美化二维码</navbar>
+<contain>
+  <view class="tit">上传黑白二维码：</view>
+  <view class="upload-img" bindtap="uploadimg">
+    <icon wx:if="{{!qrinfo.img}}" type="add" round />
+    <image wx:else mode="aspectFit" src="{{qrinfo.img}}"></image>
+  </view>
+  <view class="tit">请选择二维码风格：</view>
+  <view class='content'>
+    <view bindtap="goqrlist" wx:if="{{styleInfo!=null}}" class="item-qr">
+      <styleitem cover="{{styleInfo.cover}}" avatar="{{styleInfo._author_avatar}}" username="{{styleInfo._author_name}}"
+        tit="{{styleInfo.element_name}}" num="{{styleInfo._like}}"></styleitem>
+    </view>
+    <view wx:else class="item" bindtap="goqrlist">
+      <cell>
+        <view class="icon-add">
+          <icon type="add" round></icon>
+        </view>
+      </cell>
+    </view>
+  </view>
+  <btn bindtap="madeImg" primary block>生成</btn>
+</contain>
+<popbox wx:if="{{pbqr}}" bind:close="close">
+  <view wx:if="{{!ifmadeqr}}" class="missbox">
+    <missbox dark type="loading" tit="正在生成中(๑╹◡╹)ﾉ“”“"></missbox>
+  </view>
+  <view class="popbox">
+    <canvas class="qrcode" style="width:200px;height:200px" canvas-id="qrcode"></canvas>
+    <view wx:if="{{ifmadeqr}}" class="opt">
+      <btn bindtap="saveimg">保存</btn>
+    </view>
+  </view>
+</popbox>

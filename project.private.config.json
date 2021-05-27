@@ -57,6 +57,24 @@
         {
           "name": "pages/upload/upload",
           "pathName": "pages/upload/upload",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/txtmade/txtmad",
+          "pathName": "pages/txtmade/txtmad",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/txtmade/txtmade",
+          "pathName": "pages/txtmade/txtmade",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/imgmade/imgmade",
+          "pathName": "pages/imgmade/imgmade",
           "scene": null
         }
       ]

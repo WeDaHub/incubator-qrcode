@@ -1,0 +1,87 @@
+/* miniprogram/pages/txtmade/txtmad.wxss */
+.tit {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #fff;
+  margin: 32rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input {
+  border-radius: 10rpx;
+  border: 4rpx solid #000000;
+  box-sizing: border-box;
+  box-shadow: 4rpx 4rpx 0rpx #D098FF;
+  background: #fff;
+  font-size: 32rpx;
+  font-weight: bold;
+  border-radius: 32rpx;
+  margin-bottom: 50rpx;
+  height: 200rpx;
+  margin: 0 32rpx;
+  box-sizing: border-box;
+  text-align: left;
+  padding: 20rpx;
+}
+
+content {
+  text-align: center;
+}
+
+.item-qr {
+  width: 330rpx;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 30rpx;
+}
+
+.item {
+  width: 330rpx;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 30rpx;
+}
+
+.icon-add {
+  margin: 150rpx 0;
+}
+
+.upload-img {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-img image {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.qrcode {
+  margin: 30rpx auto;
+  display: block;
+}
+
+.opt {
+  text-align: center;
+}
+
+.missbox {
+  position: absolute;
+  width: 90%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 90%;
+  background: #fff;
+  z-index: 9;
+}
