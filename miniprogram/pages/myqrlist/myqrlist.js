@@ -10,7 +10,7 @@ Page({
     ifsetting: false,
     list: [],
     total: null,
-    limit: 6, //每页数量
+    limit: 4, //每页数量
     pageid: 1,
     deletelist: [],
     misstxt:"数据加载中",

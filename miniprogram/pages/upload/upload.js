@@ -10,7 +10,7 @@ Page({
       name: "cover",
       temporary: "",
       fileId: "",
-      url: '../../images/qr.png',
+      url: '../../images/demo.png',
     }, {
       name: "eye",
       temporary: "",
@@ -68,8 +68,7 @@ Page({
       url: '../../images/upload/tian.png',
     }],
     pbupload: false,
-    pbrule: false,
-    stylename:null,
+    stylename: null,
     pbtip: false,
     tip: ""
   },
@@ -77,15 +76,12 @@ Page({
     this.setData({
       stylename: e.detail.value
     })
-},
-  closePbUpload(e) {
-    this.setData({
-      pbupload: false
-    })
   },
-  closePbRule() {
+  close(e) {
     this.setData({
-      pbrule: false
+      pbupload: false,
+      pbrule: false,
+      pbtip:false
     })
   },
   // 上传风格
@@ -121,14 +117,20 @@ Page({
     })
   },
   showpbupload() {
-    if(this.)
+    if (this.data.list[0].fileId == "" || this.data.list[1].fileId == "" || this.data.list[2].fileId == "") {
+      this.setData({
+        tip: '(▼へ▼メ)至少上传前三张示意图哦～',
+        pbtip: true
+      })
+      return;
+    }
     this.setData({
       pbupload: true,
     })
   },
   showpbrule() {
-    this.setData({
-      pbrule: true,
+    wx.navigateTo({
+      url: '/pages/designrule/designrule'
     })
   },
   // 图片转base64
@@ -199,8 +201,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成

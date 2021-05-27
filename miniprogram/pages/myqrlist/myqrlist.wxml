@@ -1,16 +1,18 @@
 <!--miniprogram/pages/qrlist/qrlist.wxml-->
-<navbar>我的</navbar>
+<navbar></navbar>
 <contain>
-  <view class="user">
-    <avatar size="150" src="{{userInfo.avatarUrl}}"></avatar>
-    <view class="user-name">{{userInfo.nickName}}</view>
-  </view>
   <view class="opt">
-    <icon bindtap="goupload" type="add"></icon>
-    <icon wx:if="{{!ifsetting}}" bindtap="doSetting" type="setting"></icon>
-    <view wx:if="{{ifsetting}}" class="setting">
-      <icon bindtap="delete" type="delete"></icon>
-      <btn bindtap="cancleSetting">取消</btn>
+    <view class="user">
+      <avatar size="150" src="{{userInfo.avatarUrl}}"></avatar>
+      <view class="user-name">{{userInfo.nickName}}</view>
+    </view>
+    <view class="opt">
+      <icon bindtap="goupload" type="add"></icon>
+      <icon wx:if="{{!ifsetting}}" bindtap="doSetting" type="setting"></icon>
+      <view wx:if="{{ifsetting}}" class="setting">
+        <icon bindtap="delete" type="delete"></icon>
+        <btn bindtap="cancleSetting">取消</btn>
+      </view>
     </view>
   </view>
   <missbox wx:if="{{list.length==0}}" type="{{misstype}}" tit="{{misstxt}}"></missbox>

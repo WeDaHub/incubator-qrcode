@@ -74,12 +74,3 @@ justify-content: center;
   height: 600rpx;
   overflow: scroll;
 }
-.rule-box{
-}
-.rule-img{
-  width: 100%;
-}
-.rule-img image{
-  width: 100%;
-  height: auto;
-}

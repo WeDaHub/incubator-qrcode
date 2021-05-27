@@ -75,6 +75,12 @@
         {
           "name": "pages/imgmade/imgmade",
           "pathName": "pages/imgmade/imgmade",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/designrule/designrule",
+          "pathName": "pages/designrule/designrule",
           "scene": null
         }
       ]

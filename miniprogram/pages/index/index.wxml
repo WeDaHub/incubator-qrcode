@@ -2,31 +2,31 @@
 <view class="content">
   <image mode="widthFix" src="../../images/logo.png"></image>
   <view class="method">
-    <btn bindtap="gotxtmade">
+    <btn primary bindtap="gotxtmade">
       <view class="method-item">
         <icon type="txt" size="90" border="{{false}}"></icon>
         <view class="method-item-txt">二维码生成</view>
       </view>
     </btn>
-    <btn bindtap="goimgmade">
+    <btn primary bindtap="goimgmade">
       <view class="method-item">
         <icon type="qr" size="90" border="{{false}}"></icon>
         <view class="method-item-txt">二维码美化</view>
       </view>
     </btn>
   </view>
-  <view class="method">
-    <btn bindtap="goqrlist">
-      <view class="method-item">
+  <view class="method-default" >
+    <!-- <btn bindtap="goqrlist"> -->
+      <view bindtap="goqrlist" class="method-item">
         <icon type="home" size="90" border="{{false}}"></icon>
         <view class="method-item-txt">社区</view>
       </view>
-    </btn>
-    <btn bindtap="gomylist">
-      <view class="method-item">
+    <!-- </btn> -->
+    <!-- <btn > -->
+      <view bindtap="gomylist" class="method-item">
         <icon type="mine" size="90" border="{{false}}"></icon>
         <view class="method-item-txt">我的</view>
       </view>
-    </btn>
+    <!-- </btn> -->
   </view>
 </view>

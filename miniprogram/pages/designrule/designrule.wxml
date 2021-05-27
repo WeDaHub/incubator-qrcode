@@ -1,0 +1,32 @@
+<!--miniprogram/pages/designrule/designrule.wxml-->
+<navbar></navbar>
+<contain>
+  <view class="rule-box">
+    <view class="h1">设计指引</view>
+    <view class="tit">亲爱的用户：</view>
+    <view class="txt">٩(๑❛ᴗ❛๑)۶,欢迎使用艺术二维码生成器。现在让我来告诉你如何设计对应的素材吧～</view>
+    <view class="txt">常见认知的二维码是黑白两色的：</view>
+    <image class="img-short" mode="widthFix" src="../../images/demo.png"></image>
+    <view class="txt">但我们可以将二维码拆分成以下11个基础元素：</view>
+    <image class="img-long" mode="widthFix" src="../../images/upload/rule.png"></image>
+    <view class="tip">ヾ(✿ﾟ▽ﾟ)ノ提取基础的元素</view>
+    <view class="txt">将它们都放在网格中，我们发现它之间是有比例的。</view>
+    <image class="img-long" mode="widthFix" src="../../images/upload/rule-1.png"></image>
+    <view class="txt">
+      关于二维码的原理，在这里便不再多说。有兴趣可以去查阅相关资料。回到这里，现在我们在黑色区域进行设计。
+    </view>
+    <image class="img-long" mode="widthFix" src="../../images/upload/rule-2.png"></image>
+    <view class="tip">(▼へ▼メ)一定要按照比例设计导出图片哦～</view>
+    <image class="img-long" mode="widthFix" src="../../images/upload/rule-3.png"></image>
+    <view class="txt">
+      最后导出小图片：
+    </view>
+    <image class="img-short" mode="widthFix" src="../../images/img/demo.png"></image>
+    <view class="tip">o(▼皿▼メ;)o按比例导出素材，命名随意</view>
+    <view class="txt">将图片上传对对应的示例图中，最后取个名字上传就可以成功啦～</view>
+    <image class="img-short" mode="widthFix" src="../../images/img/demo1.png"></image>
+    <view class="tip">(╬◣д◢)必须上传封面图、码眼、单元素图片哦</view>
+    <view class="txt">是不是很简单，快去尝试一下吧，制作自己的专属艺术二维码。</view>
+    <btn primary bindtap="goupload">去制作</btn>
+  </view>
+</contain>

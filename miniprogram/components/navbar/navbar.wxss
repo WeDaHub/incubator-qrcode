@@ -14,14 +14,14 @@
 }
 
 .nav-box .nav-icon {
-  width: 48rpx;
-  height: 48rpx;
+  width: 70rpx;
+  height: 70rpx;
   position: absolute;
   left: 32rpx;
   background: #fff;
   border: 4rpx solid #18191F;
   box-sizing: border-box;
-  border-radius: 48rpx;
+  border-radius: 70rpx;
   box-shadow: 4rpx 4rpx 0rpx #D098FF;
 }
 
@@ -33,8 +33,8 @@
   right: 0;
   left: 3px;
   margin: auto;
-  width: 14rpx;
-  height: 14rpx;
+  width: 20rpx;
+  height: 20rpx;
   border-top: 5rpx solid #18191F;
   border-right: 5rpx solid #18191F;
   transform: rotate(-135deg);

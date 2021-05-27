@@ -1,0 +1,47 @@
+/* miniprogram/pages/designrule/designrule.wxss */
+.rule-box {
+  background: #fff;
+  border: 4rpx solid #000000;
+  box-shadow: 4rpx 4rpx 0rpx #D098FF;
+  border-radius: 40rpx;
+  font-size: 24rpx;
+  margin: 32rpx;
+  padding: 32rpx;
+  text-align: center;
+  height: 70%;
+  box-sizing: border-box;
+  overflow: scroll;
+}
+.h1{
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-bottom: 32rpx;
+}
+.tit {
+  font-size: 30rpx;
+  margin-bottom: 30rpx;
+  text-align: left;
+}
+
+.txt {
+  line-height: 40rpx;
+  margin-bottom: 10rpx;
+  text-indent: 2em;
+  text-align: left;
+}
+
+.tip {
+  font-size: 20rpx;
+  color: #7F36FF;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.img-short {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.img-long {
+  width: 400rpx;
+}

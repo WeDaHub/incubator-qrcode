@@ -1,6 +1,11 @@
 /* miniprogram/pages/qrlist/qrlist.wxss */
+.opt-box{
+  display: flex;
+  justify-content: center;
+}
 .user{
   text-align: center;
+  margin-right: 40rpx;
 }
 .user-name{
   font-weight: bold;
@@ -12,7 +17,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   box-sizing: border-box;
 }
 

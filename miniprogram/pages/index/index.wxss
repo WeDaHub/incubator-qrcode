@@ -21,6 +21,12 @@
   display: flex;
   justify-content: center;
 }
+.method-default {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
 
 .method-item {
   font-weight: bold;
@@ -30,6 +36,6 @@
 }
 .method-item-txt{
   font-size: 30rpx;
-  line-height: 23rpx;
+  line-height: 30rpx;
   font-weight: bold;
 }
