@@ -68,7 +68,7 @@ Page({
   },
   async madeTxt() {
     var that = this;
-    if (this.data.qrinfo.txt == '') {
+    if (this.data.qrinfo.text == '') {
       this.setData({
         tip: '(▼へ▼メ)请输入文字吖～',
         pbtip: true
