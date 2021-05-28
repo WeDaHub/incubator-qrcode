@@ -18,6 +18,7 @@ Page({
         pbimg: false,
         pbqr: false,
         ifmadeqr: false,
+        pagefrom:'qrlist'
     },
     saveimg() {
         var that = this;
@@ -171,6 +172,7 @@ Page({
         this.setData({
             styleInfo: info,
             imginfo: imgs,
+            pagefrom:options.pagefrom
         })
     }
 })
