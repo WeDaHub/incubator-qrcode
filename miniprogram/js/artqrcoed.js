@@ -39,7 +39,8 @@ function getqrcode(qrinfo, imginfo) {
     datalist = array;
     datacol = qrcode[1];
     unit = (qrinfo.size / datacol).toFixed(2);
-    var cyt = wx.createCanvasContext(qrinfo.canvasid)
+    var cyt = wx.createCanvasContext(qrinfo.canvasid);
+    cyt.clearRect(0,0,qrinfo.size, qrinfo.size);
     beginDraw(imginfo, cyt);
     resolve()
   })
