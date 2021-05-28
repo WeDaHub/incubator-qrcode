@@ -98,7 +98,7 @@ Page({
         })
         this.getsize().then(() => {
             this.addlikenum(this.data.styleInfo._id);
-            qrcode.getqrcode(this.data.qrinfo, this.data.imginfo).then(() => {
+            qrcode.changeqrcode(this.data.qrinfo, this.data.imginfo).then(() => {
                 that.setData({
                     ifmadeqr: true
                 })

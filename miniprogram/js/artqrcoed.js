@@ -46,14 +46,18 @@ function getqrcode(qrinfo, imginfo) {
 }
 
 function changeqrcode(qrinfo, imginfo) {
-  // 解析二维码
-  var cyt = wx.createCanvasContext(qrinfo.canvasid)
-  cyt.drawImage(qrinfo.img, 0, 0, qrinfo.size, qrinfo.size);
-  cyt.draw();
-  var gettext = getdataimg(qrinfo);
-  gettext.then((res) => {
-    qrinfo.text = res;
-    getqrcode(qrinfo, imginfo)
+  return new Promise((resolve, reject) => {
+    // 解析二维码
+    var cyt = wx.createCanvasContext(qrinfo.canvasid)
+    cyt.drawImage(qrinfo.img, 0, 0, qrinfo.size, qrinfo.size);
+    cyt.draw();
+    var gettext = getdataimg(qrinfo);
+    gettext.then((res) => {
+      qrinfo.text = res;
+      getqrcode(qrinfo, imginfo).then(()=>{
+        resolve();
+      })
+    })
   })
 }
 
