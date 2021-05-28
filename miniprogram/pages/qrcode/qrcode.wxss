@@ -58,7 +58,7 @@
 
 .missbox {
   position: absolute;
-  width: 90%;
+  width: 70%;
   left: 0;
   right: 0;
   top: 0;

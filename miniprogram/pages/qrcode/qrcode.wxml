@@ -5,13 +5,13 @@
       tit="{{styleInfo.element_name}}" num="{{styleInfo._like}}"></styleitem>
   </view>
   <view class="method">
-    <btn bindtap="showpbtxt">
+    <btn primary bindtap="showpbtxt">
       <view class="method-item">
         <icon type="txt" size="90" border="{{false}}"></icon>
         <view class="method-item-txt">二维码生成</view>
       </view>
     </btn>
-    <btn bindtap="showpbimg">
+    <btn primary bindtap="showpbimg">
       <view class="method-item">
         <icon type="qr" size="90" border="{{false}}"></icon>
         <view class="method-item-txt">二维码美化</view>
