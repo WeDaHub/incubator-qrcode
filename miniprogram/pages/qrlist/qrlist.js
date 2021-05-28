@@ -14,18 +14,18 @@ Page({
     pagefrom:'index',
   },
   gomylist() {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/myqrlist/myqrlist'
     })
   },
   goqrcode(e) {
     var data = JSON.stringify(e.currentTarget.dataset.info)
     if(this.data.pagefrom=='index'){
-      wx.navigateTo({
+      wx.redirectTo({
         url: `/pages/qrcode/qrcode?info=${data}`
       })
     }else{
-        wx.navigateTo({
+        wx.redirectTo({
           url: `/pages/${this.data.pagefrom}/${this.data.pagefrom}?info=${data}`
         })
     }
@@ -96,10 +96,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(options.pagefrom){
+    if(options.pagefrom=='imgmad'||options.pagefrom=="txtmade"){
       this.setData({
         pagefrom:options.pagefrom,
       })
+    }else{
+        this.setData({
+          pagefrom:'index',
+        })
     }
     this.firstgetdatalist()
   },

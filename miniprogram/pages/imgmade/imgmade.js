@@ -117,7 +117,7 @@ Page({
     })
   },
   goqrlist() {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/qrlist/qrlist?pagefrom=imgmade'
     })
   },

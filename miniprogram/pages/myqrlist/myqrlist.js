@@ -19,7 +19,7 @@ Page({
   },
   goqrcode(e) {
     var data = JSON.stringify(e.currentTarget.dataset.info)
-    wx.navigateTo({
+    wx.redirectTo({
       url: `/pages/qrcode/qrcode?info=${data}&pagefrom=myqrlist`
     })
   },
@@ -107,7 +107,7 @@ Page({
     }
   },
   goupload() {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/upload/upload'
     })
   },

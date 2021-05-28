@@ -8,7 +8,7 @@ Page({
 
   },
   goupload() {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/upload/upload'
     })
   },

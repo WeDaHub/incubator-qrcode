@@ -200,7 +200,7 @@ Page({
     })
   },
   showpbrule() {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/designrule/designrule'
     })
   },

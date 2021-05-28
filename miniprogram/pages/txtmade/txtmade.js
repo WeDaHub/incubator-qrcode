@@ -145,7 +145,7 @@ Page({
     console.log(this.data.imginfo, this.data.styleInfo)
   },
   goqrlist() {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/qrlist/qrlist?pagefrom=txtmade'
     })
   },
