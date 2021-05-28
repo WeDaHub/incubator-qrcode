@@ -66,6 +66,7 @@
   height: 90%;
   background: #fff;
   z-index: 9;
+  margin: auto;
 }
 
 .method {

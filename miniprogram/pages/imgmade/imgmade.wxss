@@ -84,6 +84,7 @@ content {
   height: 90%;
   background: #fff;
   z-index: 9;
+  margin: auto;
 }
 .tip{
   font-size: 24rpx;
