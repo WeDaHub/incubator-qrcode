@@ -20,6 +20,7 @@ Page({
   },
   goqrcode(e) {
     var data = JSON.stringify(e.currentTarget.dataset.info)
+    console.log(this.data.pagefrom,"|||")
     if(this.data.pagefrom=='index'){
       wx.redirectTo({
         url: `/pages/qrcode/qrcode?info=${data}`
@@ -96,7 +97,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(options.pagefrom=='imgmad'||options.pagefrom=="txtmade"){
+    console.log(options,"?:?:")
+    if(options.pagefrom=='imgmade'||options.pagefrom=="txtmade"){
       this.setData({
         pagefrom:options.pagefrom,
       })
