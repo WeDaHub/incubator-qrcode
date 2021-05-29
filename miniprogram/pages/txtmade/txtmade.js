@@ -125,7 +125,9 @@ Page({
       row2: info.row2,
       row3: info.row3,
       row4: info.row4,
-    }
+      re7: info.re7,
+      po7: info.po7,
+  }
     for (const key in imgs) {
       if (imgs.hasOwnProperty(key)) {
         const element = imgs[key];

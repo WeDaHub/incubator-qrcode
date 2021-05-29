@@ -82,6 +82,7 @@ Page({
         })
         this.getsize().then(() => {
             this.addlikenum(this.data.styleInfo._id);
+            console.log(this.data.imginfo,"??")
             qrcode.getqrcode(this.data.qrinfo, this.data.imginfo).then(() => {
                 that.setData({
                     ifmadeqr: true
@@ -154,6 +155,8 @@ Page({
             row2: info.row2,
             row3: info.row3,
             row4: info.row4,
+            re7: info.re7,
+            po7: info.po7,
         }
         for (const key in imgs) {
             if (imgs.hasOwnProperty(key)) {
