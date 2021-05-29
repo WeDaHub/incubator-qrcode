@@ -1,4 +1,16 @@
 /* miniprogram/pages/qrlist/qrlist.wxss */
+button{
+  background: transparent;
+  display: block;
+  width:80rpx;
+  height: 150rpx;
+  display: flex;
+  align-items: center;
+}
+button:not([size='mini']){
+  width:100rpx !important;
+  padding: 0 !important;
+}
 .opt{
   display: flex;
   justify-content: space-between;

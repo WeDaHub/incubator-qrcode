@@ -51,7 +51,7 @@ Component({
    */
   methods: {
       goBack() {
-            wx.redirectTo({
+            wx.navigateTo({
               url: `/pages/${this.data.pagefrom}/${this.data.pagefrom}`
             })
       }

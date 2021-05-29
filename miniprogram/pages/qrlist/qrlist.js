@@ -14,7 +14,7 @@ Page({
     pagefrom:'index',
   },
   gomylist() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/myqrlist/myqrlist'
     })
   },
@@ -22,11 +22,11 @@ Page({
     var data = JSON.stringify(e.currentTarget.dataset.info)
     console.log(this.data.pagefrom,"|||")
     if(this.data.pagefrom=='index'){
-      wx.redirectTo({
+      wx.navigateTo({
         url: `/pages/qrcode/qrcode?info=${data}`
       })
     }else{
-        wx.redirectTo({
+        wx.navigateTo({
           url: `/pages/${this.data.pagefrom}/${this.data.pagefrom}?info=${data}`
         })
     }
@@ -97,7 +97,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options,"?:?:")
     if(options.pagefrom=='imgmade'||options.pagefrom=="txtmade"){
       this.setData({
         pagefrom:options.pagefrom,

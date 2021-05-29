@@ -2,8 +2,23 @@
 .opt{
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  margin-right: 20rpx;
+  justify-content: space-between;
+  margin: 0 20rpx;
+  margin-left: 30rpx;
+  margin-bottom: 30rpx;
+}
+.user{
+  text-align: center;
+  margin-right: 40rpx;
+  display: flex;
+  align-items: center;
+}
+.user-name{
+  font-weight: bold;
+  color: #fff;
+  line-height: 50rpx;
+  font-size: 36rpx;
+  margin-left: 20rpx;
 }
 .list{
 padding: 15rpx;

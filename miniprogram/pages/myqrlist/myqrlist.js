@@ -1,6 +1,4 @@
 // miniprogram/pages/qrlist/qrlist.js
-var app = getApp();
-
 Page({
 
   /**
@@ -13,13 +11,25 @@ Page({
     limit: 4, //每页数量
     pageid: 1,
     deletelist: [],
-    misstxt:"数据加载中",
-    misstype:'loading',
-    userInfo:null
+    misstxt: "数据加载中",
+    misstype: 'loading',
+    ifgetinfo: false,
+    userInfo: {
+      avatarUrl: '',
+      nickName: '点击获取信息'
+    },
+    pbtip: false,
+    tip: 'ヾ(✿ﾟ▽ﾟ)ノ'
+  },
+  close() {
+    this.setData({
+      pbtip: false,
+      tip: 'ヾ(✿ﾟ▽ﾟ)ノ'
+    })
   },
   goqrcode(e) {
     var data = JSON.stringify(e.currentTarget.dataset.info)
-    wx.redirectTo({
+    wx.navigateTo({
       url: `/pages/qrcode/qrcode?info=${data}&pagefrom=myqrlist`
     })
   },
@@ -34,7 +44,7 @@ Page({
       // 成功回调
       complete: (res) => {
         this.setData({
-          ifsetting:false
+          ifsetting: false
         })
         this.firstgetdatalist();
       }
@@ -60,8 +70,8 @@ Page({
         this.setData({
           total: total,
           list: list,
-          misstxt:list.length==0?'暂无数据':'数据加载中',
-          misstype:list.length==0?'nodata':'loading',
+          misstxt: list.length == 0 ? '暂无数据' : '数据加载中',
+          misstype: list.length == 0 ? 'nodata' : 'loading',
         })
       }
     })
@@ -107,9 +117,17 @@ Page({
     }
   },
   goupload() {
-    wx.redirectTo({
-      url: '/pages/upload/upload'
-    })
+    if (!this.data.ifgetinfo) {
+      this.getUserProfile().then(() => {
+        wx.navigateTo({
+          url: '/pages/upload/upload'
+        })
+      });
+    } else {
+      wx.navigateTo({
+        url: '/pages/upload/upload'
+      })
+    }
   },
   cancleSetting() {
     this.setData({
@@ -146,16 +164,27 @@ Page({
     this.setData({
       deletelist: this.data.deletelist
     })
-    console.log(this.data.deletelist, "??")
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      userInfo:app.globalData.userInfo
+    var that = this;
+    wx.getStorage({
+      key: 'userInfo',
+      success: (e) => {
+        var info = JSON.parse(e.data);
+        that.setData({
+          ifgetinfo: true,
+          userInfo: info
+        })
+      },
+      fail: (e) => {
+        that.setData({
+          ifgetinfo: false
+        })
+      }
     })
-    console.log(this.data.userInfo)
     this.firstgetdatalist();
   },
 
@@ -206,5 +235,33 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getUserProfile(e) {
+    var that = this;
+    return new Promise((resolve, reject) => {
+      // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
+      wx.getUserProfile({
+        desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        success: (res) => {
+          this.setData({
+            userInfo: res.userInfo,
+            ifgetinfo: true,
+          })
+          var info = JSON.stringify(res.userInfo);
+          wx.setStorage({
+              key: "userInfo",
+              data: info
+            }),
+            resolve();
+        },
+        fail: (e) => {
+          that.setData({
+            pbtip: true,
+            tip: "(╬◣д◢)不授权无法上传素材哦！"
+          })
+          reject(e);
+        }
+      })
+    })
   }
 })

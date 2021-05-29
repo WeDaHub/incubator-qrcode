@@ -2,7 +2,7 @@
 <navbar pagefrom="index"></navbar>
 <contain>
   <view class="opt">
-    <view class="user">
+    <view class="user" bindtap="getUserProfile">
       <avatar size="150" src="{{userInfo.avatarUrl}}"></avatar>
       <view class="user-name">{{userInfo.nickName}}</view>
     </view>
@@ -30,3 +30,6 @@
   </view>
   <page bind:prepage="prepage" bind:nextpage="nextpage" pageid="{{pageid}}" pagenum="{{total}}"></page>
 </contain>
+<popbox wx:if="{{pbtip}}" bind:close="close">
+    {{tip}}
+</popbox>

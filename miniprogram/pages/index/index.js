@@ -8,22 +8,22 @@ Page({
 
   },
   gotxtmade() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/txtmade/txtmade'
     })
   },
   goimgmade() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/imgmade/imgmade'
     })
   },
   goqrlist() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/qrlist/qrlist'
     })
   },
   gomylist() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/myqrlist/myqrlist'
     })
   },

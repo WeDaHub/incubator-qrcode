@@ -1,7 +1,11 @@
 <navbar pagefrom="myqrlist">素材生成</navbar>
 <contain>
   <view class="opt">
-    <icon bindtap="showpbrule" type="question" />
+    <view class="user" bindtap="getUserProfile">
+      <avatar size="150" src="{{userInfo.avatarUrl}}"></avatar>
+      <view class="user-name">{{userInfo.nickName}}</view>
+    </view>
+    <icon wx:if="{{!ifsetting}}" bindtap="showpbrule" type="question"></icon>
   </view>
   <view class="list">
     <view class="item" wx:for="{{list}}" wx:key="index">
@@ -16,13 +20,14 @@
       </view>
     </view>
   </view>
-    <btn primary block bindtap="showpbupload">上传</btn>
+  <btn primary block bindtap="showpbupload">上传</btn>
 </contain>
 <popbox wx:if="{{pbupload}}" bind:close="close">
   <view>
     <view>
       <view class="txt">标题：</view>
-      <input bindinput="gettxt" class="input" maxlength="7" value="{{stylename}}" auto-focus placeholder="ヾ(◍°∇°◍)ﾉﾞ取个名字吧。" />
+      <input bindinput="gettxt" class="input" maxlength="7" value="{{stylename}}" auto-focus
+        placeholder="ヾ(◍°∇°◍)ﾉﾞ取个名字吧。" />
     </view>
     <view class="txt">您将上传以下图片素材：</view>
     <view class="img-box">
