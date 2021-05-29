@@ -1,5 +1,5 @@
 <!--miniprogram/pages/qrlist/qrlist.wxml-->
-<navbar pagefrom="{{pagefrom}}"></navbar>
+<navbar delta="100"></navbar>
 <contain>
   <missbox wx:if="{{list.length==0}}" type="{{misstype}}" tit="{{misstxt}}"></missbox>
   <view wx:else class="list">

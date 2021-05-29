@@ -20,7 +20,6 @@ Page({
   },
   goqrcode(e) {
     var data = JSON.stringify(e.currentTarget.dataset.info)
-    console.log(this.data.pagefrom,"|||")
     if(this.data.pagefrom=='index'){
       wx.navigateTo({
         url: `/pages/qrcode/qrcode?info=${data}`

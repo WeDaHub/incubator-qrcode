@@ -1,6 +1,4 @@
-<!--miniprogram/pages/txtmade/txtmad.wxml-->
-<!--miniprogram/pages/qrlist/qrlist.wxml-->
-<navbar>文字生成二维码</navbar>
+<navbar delta="100">文字生成二维码</navbar>
 <contain>
   <view class="tit">请输入文字内容：</view>
   <textarea bindinput="gettxt" class="input" value="{{qrinfo.text}}" placeholder="٩(๑❛ᴗ❛๑)۶：文字,网站都可以哟～" maxlength="300rpx"></textarea>

@@ -1,6 +1,4 @@
-<!--miniprogram/pages/txtmade/txtmad.wxml-->
-<!--miniprogram/pages/qrlist/qrlist.wxml-->
-<navbar>美化二维码</navbar>
+<navbar delta="100">美化二维码</navbar>
 <contain>
   <view class="tit">上传黑白二维码：</view>
   <view class="tip">٩(๑❛ᴗ❛๑)۶一定是要清晰能识别的黑白二维码哦～</view>

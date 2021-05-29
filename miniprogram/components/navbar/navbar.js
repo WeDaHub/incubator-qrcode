@@ -19,9 +19,9 @@ Component({
           type: String,
           value: 'transparent'
       },
-      pagefrom:{
-        type: String,
-        value: 'index'
+      delta:{
+        type: Number,
+        value: 2
       }
   },
 
@@ -51,9 +51,9 @@ Component({
    */
   methods: {
       goBack() {
-            wx.navigateTo({
-              url: `/pages/${this.data.pagefrom}/${this.data.pagefrom}`
-            })
+        wx.navigateBack({
+            delta: this.data.delta
+        })
       }
   },
 })
