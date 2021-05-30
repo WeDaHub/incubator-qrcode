@@ -1,4 +1,5 @@
-import drawQrcode from './weapp.qrcode.min.js';
+// import drawQrcode from './weapp.qrcode.min.js';
+import QRCode from './getqrcode.js';
 import QRDecode from './decode.js';
 
 var datalist = [];
@@ -7,23 +8,24 @@ var unit = null;
 
 function getqrcode(qrinfo, imginfo) {
   return new Promise((resolve, reject) => {
-    console.log(qrinfo.text,"???")
-    var qrcode = drawQrcode({
+    var qrcodedata = new QRCode({
       width: qrinfo.size,
       height: qrinfo.size,
-      canvasId: 1,
-      text: qrinfo.text
-    })
-    console.log(qrinfo.text,"?111??")
+      text: qrinfo.text,
+      colorDark: "black",
+      colorLight: "transparent",
+    });
+    var qrcode=qrcodedata._oQRCode.modules;
+    console.log(qrcode,"???")
     var array = [];
     var n = 0;
-    for (let i = 0; i < qrcode[1]; i++) {
+    for (let i = 0; i < qrcode.length; i++) {
       array[i] = [];
       // 首先遍历tr数组
-      for (let j = 0; j < qrcode[1]; j++) {
+      for (let j = 0; j < qrcode[i].length; j++) {
         array[i][j] = []; //第一个是上色情况，第二个是记录情况
         // 遍历每个tr里的td，记录每个td的上色情况；
-        if (qrcode[0][n] == 1) {
+        if (qrcode[i][j] == true) {
           array[i][j][0] = 1;
           array[i][j][1] = 0;
         } else {
@@ -32,14 +34,14 @@ function getqrcode(qrinfo, imginfo) {
         }
         n++;
         // 首先把3个大框框保存下来；
-        if ((i < 7 && j < 7) || (i > qrcode[1] - 8 && j < 8) || (i < 8 && j > qrcode[1] - 8)) {
+        if ((i < 7 && j < 7) || (i > qrcode.length - 8 && j < 8) || (i < 8 && j > qrcode.length - 8)) {
           array[i][j][1] = 1;
         }
       }
     }
     // 重新赋值
     datalist = array;
-    datacol = qrcode[1];
+    datacol = qrcode.length;
     unit = (qrinfo.size / datacol).toFixed(2);
     var cyt = wx.createCanvasContext(qrinfo.canvasid);
     cyt.clearRect(0,0,qrinfo.size, qrinfo.size);
@@ -57,7 +59,7 @@ function changeqrcode(qrinfo, imginfo) {
     var gettext = getdataimg(qrinfo);
     gettext.then((res) => {
       qrinfo.text = res;
-      getqrcode(qrinfo, imginfo).then(()=>{
+      getqrcode(qrinfo, imginfo).then(() => {
         resolve();
       })
     })
