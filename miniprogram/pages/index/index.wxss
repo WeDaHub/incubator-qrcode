@@ -11,7 +11,7 @@
 }
 
 .content image {
-  margin-top: 100rpx;
+  margin-top: 200rpx;
   width: 450rpx;
   height: 340rpx;
 }

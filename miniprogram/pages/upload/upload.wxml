@@ -20,7 +20,7 @@
       </view>
     </view>
   </view>
-  <btn primary block bindtap="showpbupload">上传</btn>
+  <btn primary block bindtap="showpbupload">下一步</btn>
 </contain>
 <popbox wx:if="{{pbupload}}" bind:close="close">
   <view>

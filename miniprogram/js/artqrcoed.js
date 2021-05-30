@@ -7,12 +7,14 @@ var unit = null;
 
 function getqrcode(qrinfo, imginfo) {
   return new Promise((resolve, reject) => {
+    console.log(qrinfo.text,"???")
     var qrcode = drawQrcode({
       width: qrinfo.size,
       height: qrinfo.size,
       canvasId: 1,
       text: qrinfo.text
     })
+    console.log(qrinfo.text,"?111??")
     var array = [];
     var n = 0;
     for (let i = 0; i < qrcode[1]; i++) {

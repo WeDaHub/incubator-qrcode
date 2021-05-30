@@ -89,6 +89,7 @@ Page({
     await this.manageimgs();
     this.getsize().then(() => {
       this.addlikenum(this.data.styleInfo._id);
+      console.log(this.data.qrinfo,"???")
       qrcode.getqrcode(this.data.qrinfo, this.data.imginfo).then(() => {
         that.setData({
           ifmadeqr: true
@@ -144,7 +145,6 @@ Page({
     this.setData({
       imginfo: imgs
     })
-    console.log(this.data.imginfo, this.data.styleInfo)
   },
   goqrlist() {
     wx.navigateTo({

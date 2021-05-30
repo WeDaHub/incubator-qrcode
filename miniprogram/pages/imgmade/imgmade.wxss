@@ -87,9 +87,9 @@ content {
   margin: auto;
 }
 .tip{
-  font-size: 24rpx;
-  color: #fff;
-  margin-left: 32rpx;
-  margin-bottom: 32rpx;
-  line-height: 24rpx;
+  margin:0 32rpx;
+  color:#FFE142;
+}
+.tip-key{
+  color: black;
 }

@@ -1,8 +1,8 @@
 <navbar delta="100">文字生成二维码</navbar>
 <contain>
-  <view class="tit">请输入文字内容：</view>
-  <textarea bindinput="gettxt" class="input" value="{{qrinfo.text}}" placeholder="٩(๑❛ᴗ❛๑)۶：文字,网站都可以哟～" maxlength="300rpx"></textarea>
-  <view class="tit">请选择二维码风格：</view>
+  <view class="tit">一、请输入文字内容：</view>
+  <textarea bindinput="gettxt" class="input" value="{{qrinfo.text}}" placeholder="٩(๑❛ᴗ❛๑)۶：文字,网站都可以哟～" maxlength="300"></textarea>
+  <view class="tit">二、请选择二维码风格：</view>
   <view class='content'>
     <view bindtap="goqrlist" wx:if="{{styleInfo!=null}}" class="item-qr">
       <styleitem cover="{{styleInfo.cover}}" avatar="{{styleInfo._author_avatar}}" username="{{styleInfo._author_name}}"
@@ -16,6 +16,7 @@
       </cell>
     </view>
   </view>
+  <view class="tip">(╬◣д◢)：由于素材由网友提供，生成以后请用手机扫描验证一下是否能正常识别出内容哦～。</view>
   <btn bindtap="madeTxt" primary block>生成</btn>
 </contain>
 <popbox wx:if="{{pbqr}}" bind:close="close">

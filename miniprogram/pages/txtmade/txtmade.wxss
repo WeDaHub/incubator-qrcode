@@ -69,3 +69,7 @@ content {
   z-index: 9;
   margin: auto;
 }
+.tip{
+  margin:0 32rpx;
+  color:#FFE142;
+}
