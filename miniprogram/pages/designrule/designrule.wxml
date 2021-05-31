@@ -20,6 +20,8 @@
     <image class="img-long" mode="widthFix" src="../../images/upload/rule-2.png"></image>
     <view class="tip">(▼へ▼メ)一定要按照比例设计导出图片哦～</view>
     <image class="img-long" mode="widthFix" src="../../images/upload/rule-3.png"></image>
+    <image class="img-long" mode="widthFix" src="../../images/upload/rules.png"></image>
+    <view class="tip">建议最小单元50 * 50px，分辨率：300</view>
     <view class="txt">
       最后导出小图片：
     </view>
