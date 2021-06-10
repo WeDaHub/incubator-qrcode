@@ -1,0 +1,15 @@
+{
+  "usingComponents": {
+    "navbar":"../../components/navbar/navbar",
+    "styleitem":"../../components/styleitem/styleitem",
+    "page":"../../components/page/page",
+    "icon":"../../components/icon/icon",
+    "btn":"../../components/btn/btn",
+    "cell":"../../components/cell/cell",
+    "popbox":"../../components/popbox/popbox",
+    "avatar":"../../components/avatar/avatar",
+    "missbox":"../../components/missbox/missbox",
+    "contain":"../../components/contain/contain"
+  },
+  "navigationStyle": "custom"
+}

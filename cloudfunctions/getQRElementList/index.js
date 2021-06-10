@@ -21,7 +21,8 @@ exports.main = async (event, context) => {
     limit,
     page_index,
     self,
-    order
+    order,
+    datatype
   } = event;
   let open_id;
   limit += 0;
@@ -31,10 +32,10 @@ exports.main = async (event, context) => {
     rs.msg = 'limit和page_index参数不正确';
     return rs;
   }
-  limit > 20 && (limit = 20); 
+  limit > 20 && (limit = 20);
   let db_process;
   //获取此用户的
-  if(self){
+  if (self) {
     const wxContext = cloud.getWXContext()
     open_id = wxContext.OPENID;
     db_process = await collection_qr_element_list.where({
@@ -42,14 +43,26 @@ exports.main = async (event, context) => {
     });
   }
   //获取全部列表
-  else{
-    db_process = collection_qr_element_list;
+  else {
+    if (datatype==0||datatype==undefined) {
+      db_process = await collection_qr_element_list;
+    }
+    if (datatype==1) {
+      db_process = await collection_qr_element_list.where({
+        publish: true
+      });  
+    }
+    if (datatype==2) {
+      db_process = await collection_qr_element_list.where({
+        publish: false
+      });  
+    }
   }
 
   //排序
-  if(order === 'like'){
+  if (order === 'like') {
     db_process = await db_process.orderBy('_like', 'desc');
-  }else{
+  } else {
     db_process = await db_process.orderBy('_upload_time', 'asc');
   }
 
@@ -57,20 +70,20 @@ exports.main = async (event, context) => {
   const countResult = await db_process.count();
   const total = countResult.total;
   const start = page_index * limit;
-  return db_process.skip(start).limit(limit).get().then(list=>{
+  return db_process.skip(start).limit(limit).get().then(list => {
     rs.code = 0;
     rs.msg = "success";
-    list.data.forEach(item=>{
+    list.data.forEach(item => {
       delete item._open_id;
     });
     rs.data = {
-      total:total,
-      page_index:page_index,
-      limit:limit,
-      list:list.data
+      total: total,
+      page_index: page_index,
+      limit: limit,
+      list: list.data
     };
     return rs;
-  }).catch(err=>{
+  }).catch(err => {
     rs.code = -2;
     rs.msg = JSON.stringify(err);
     return rs;

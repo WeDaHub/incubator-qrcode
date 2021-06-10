@@ -1,0 +1,59 @@
+/* miniprogram/pages/qrlist/qrlist.wxss */
+.opt{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list {
+  padding: 0 32rpx;
+}
+
+.item {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-radius: 32rpx;
+  margin: 16rpx 0;
+}
+
+.item-hd {
+  padding: 20rpx 32rpx;
+  border-bottom: solid 4rpx #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-hd-tit {
+  font-weight: bold;
+  font-size: 48rpx;
+}
+
+.item-hd-user {
+  display: flex;
+  align-items: center;
+}
+
+.user-name {
+  margin-left: 20rpx;
+}
+
+.item-bd {
+  padding: 32rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.img-item {
+  width: 100rpx;
+  text-align: center;
+  margin: 10rpx;
+}
+
+.img-item image {
+  width: 100rpx;
+  height: 100rpx;
+}

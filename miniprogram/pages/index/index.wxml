@@ -28,5 +28,11 @@
         <view class="method-item-txt">我的</view>
       </view>
     <!-- </btn> -->
+    <!-- <btn > -->
+      <view wx:if="{{openid=='oTeIY4x2XbUh-zDPgz11RdynsOTs'}}" bindtap="gocheck" class="method-item">
+        <icon type="check" size="90" border="{{false}}"></icon>
+        <view class="method-item-txt">审核</view>
+      </view>
+    <!-- </btn> -->
   </view>
 </view>

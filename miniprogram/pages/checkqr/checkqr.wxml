@@ -1,0 +1,77 @@
+<!--miniprogram/pages/qrlist/qrlist.wxml-->
+<navbar pagefrom="index"></navbar>
+<contain>
+  <view class="opt">
+    <btn primary="{{datatype==0}}" bindtap="getall">全部</btn>
+    <btn primary="{{datatype==1}}" bindtap="getpublish">已上架</btn>
+    <btn primary="{{datatype==2}}" bindtap="getwait">未上架</btn>
+  </view>
+  <missbox wx:if="{{ifloading}}" type="loading" tit="数据加载中……"></missbox>
+  <view wx:else class="list">
+    <view class="item" wx:for="{{list}}" wx:key="index">
+      <cell>
+        <view class="item-hd">
+          <view>
+            <view class="item-hd-tit">{{item.element_name}}</view>
+            <view class="item-hd-user">
+              <avatar size="60" src="{{item._author_avatar}}" />
+              <text class="user-name">{{item._author_name}}</text>
+            </view>
+          </view>
+          <btn primary="{{!item.publish?true:false}}" bindtap="qrpublish" data-qrid="{{item._id}}" data-publish="{{item.publish}}">{{item.publish?"下架":"上架"}}</btn>
+        </view>
+        <view class="item-bd">
+          <view class="img-item">
+            <image mode="aspectFit" src="{{item.cover}}" />
+            <view>cover</view>
+          </view>
+          <view class="img-item">
+            <image mode="aspectFit" src="{{item.one}}" />
+            <view>one</view>
+          </view>
+          <view class="img-item">
+            <image mode="aspectFit" src="{{item.eye}}" />
+            <view>eye</view>
+          </view>
+          <view wx:if="{{item.col2}}" class="img-item">
+            <image mode="aspectFit" src="{{item.col2}}" />
+            <view>col2</view>
+          </view>
+          <view wx:if="{{item.col3}}" class="img-item">
+            <image mode="aspectFit" src="{{item.col3}}" />
+            <view>col3</view>
+          </view>
+          <view wx:if="{{item.col4}}" class="img-item">
+            <image mode="aspectFit" src="{{item.col4}}" />
+            <view>col4</view>
+          </view>
+          <view wx:if="{{item.row2}}" class="img-item">
+            <image mode="aspectFit" src="{{item.row2}}" />
+            <view>row2</view>
+          </view>
+          <view wx:if="{{item.row3}}" class="img-item">
+            <image mode="aspectFit" src="{{item.row3}}" />
+            <view>row3</view>
+          </view>
+          <view wx:if="{{item.row4}}" class="img-item">
+            <image mode="aspectFit" src="{{item.row4}}" />
+            <view>row4</view>
+          </view>
+          <view wx:if="{{item.tian}}" class="img-item">
+            <image mode="aspectFit" src="{{item.tian}}" />
+            <view>tian</view>
+          </view>
+          <view wx:if="{{item.po7}}" class="img-item">
+            <image mode="aspectFit" src="{{item.po7}}" />
+            <view>po7</view>
+          </view>
+          <view wx:if="{{item.re7}}" class="img-item">
+            <image mode="aspectFit" src="{{item.re7}}" />
+            <view>re7</view>
+          </view>
+        </view>
+      </cell>
+    </view>
+  </view>
+  <page bind:prepage="prepage" bind:nextpage="nextpage" pageid="{{pageid}}" pagenum="{{total}}"></page>
+</contain>

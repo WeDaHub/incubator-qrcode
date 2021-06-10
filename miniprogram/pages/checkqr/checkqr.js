@@ -7,54 +7,88 @@ Page({
   data: {
     list: [],
     total: null,
-    limit: 6, //每页数量
+    limit: 10, //每页数量
     pageid: 1,
-    misstype:'loading',
-    misstxt:'数据加载中٩(๑❛ᴗ❛๑)۶～',
-    pagefrom:'index',
+    datatype: 0,
+    ifloading: false
   },
-  gomylist() {
-    wx.navigateTo({
-      url: '/pages/myqrlist/myqrlist'
+  getall() {
+    this.setData({
+      datatype: 0
     })
+    this.firstgetdatalist();
   },
-  goqrcode(e) {
-    var data = JSON.stringify(e.currentTarget.dataset.info)
-    if(this.data.pagefrom=='index'){
-      wx.navigateTo({
-        url: `/pages/qrcode/qrcode?info=${data}`
-      })
-    }else{
-        wx.navigateTo({
-          url: `/pages/${this.data.pagefrom}/${this.data.pagefrom}?info=${data}`
-        })
-    }
+  getpublish() {
+    this.setData({
+      datatype: 1
+    })
+    this.firstgetdatalist();
+  },
+  getwait() {
+    this.setData({
+      datatype: 2
+    })
+    this.firstgetdatalist();
+  },
+  qrpublish(e) {
+    var id = e.currentTarget.dataset.qrid;
+    var qrpublish = !e.currentTarget.dataset.publish;
+    wx.cloud.callFunction({
+      // 需调用的云函数名
+      name: 'publishQR',
+      // 传给云函数的参数
+      data: {
+        qr_id: id,
+        publish: qrpublish
+      },
+      // 成功回调
+      complete: (res) => {
+        for (let i = 0; i < this.data.list.length; i++) {
+          if (this.data.list[i]._id == id) {
+            var publish = `list[${i}].publish`;
+            this.setData({
+              [publish]: qrpublish
+            })
+            break;
+          }
+        }
+      }
+    })
+
   },
   firstgetdatalist() {
+    this.setData({
+      ifloading: true
+    })
     wx.cloud.callFunction({
       // 需调用的云函数名
       name: 'getQRElementList',
       // 传给云函数的参数
       data: {
         limit: this.data.limit,
-        page_index: this.data.pageid - 1,
-        self: false,
-        datatype:1
+        page_index: 0,
+        datatype: this.data.datatype,
+        self: false
       },
       // 成功回调
       complete: (res) => {
         var list = res.result.data.list;
+        for (let i = 0; i < list.length; i++) {
+          list[i].select = false;
+        }
         var total = Math.ceil(res.result.data.total / this.data.limit);
         this.setData({
           total: total,
           list: list,
-          misstype:list.length>0?'loading':'nodata',
-          misstxt:list.length>0?'好看的模板在路上٩(๑❛ᴗ❛๑)۶':'数据跑哪里了呢？(╥╯^╰╥)',
+          ifloading: false
         })
       }
     })
   },
   getdatalist(pageid) {
+    this.setData({
+      ifloading: true
+    })
     wx.cloud.callFunction({
       // 需调用的云函数名
       name: 'getQRElementList',
@@ -62,32 +96,34 @@ Page({
       data: {
         limit: this.data.limit,
         page_index: pageid - 1,
-        self: false,
-        datatype:1
+        datatype: this.data.datatype,
+        self: false
       },
       // 成功回调
       complete: (res) => {
         var list = res.result.data.list;
+        for (let i = 0; i < list.length; i++) {
+          list[i].select = false;
+        }
         var total = Math.ceil(res.result.data.total / this.data.limit);
         this.setData({
           total: total,
           list: list,
-          misstype:list.length>0?'loading':'nodata',
-          misstxt:list.length>0?'好看的模板在路上٩(๑❛ᴗ❛๑)۶':'数据跑哪里了呢？(╥╯^╰╥)',
+          ifloading: false
         })
       }
     })
   },
   prepage() {
-    if (this.data.pageid <= this.data.total&&this.data.pageid>1) {
+    if (this.data.pageid <= this.data.total && this.data.pageid > 1) {
       this.setData({
         pageid: this.data.pageid - 1
       })
       this.getdatalist(this.data.pageid)
     }
   },
-  nextpage(){
-    if(this.data.pageid<this.data.total){
+  nextpage() {
+    if (this.data.pageid < this.data.total) {
       this.setData({
         pageid: this.data.pageid + 1
       })
@@ -98,16 +134,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(options.pagefrom=='imgmade'||options.pagefrom=="txtmade"){
-      this.setData({
-        pagefrom:options.pagefrom,
-      })
-    }else{
-        this.setData({
-          pagefrom:'index',
-        })
-    }
-    this.firstgetdatalist()
+    this.firstgetdatalist();
   },
 
   /**
@@ -155,7 +182,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
+  onShareAppMessage: function () {}
 })

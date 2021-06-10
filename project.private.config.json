@@ -81,6 +81,12 @@
         {
           "name": "pages/designrule/designrule",
           "pathName": "pages/designrule/designrule",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/checkqr/checkqr",
+          "pathName": "pages/checkqr/checkqr",
           "scene": null
         }
       ]

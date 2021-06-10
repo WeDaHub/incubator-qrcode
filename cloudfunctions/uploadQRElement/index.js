@@ -60,7 +60,8 @@ exports.main = async (event, context) => {
     row4,
     tian,
     _author_avatar,
-    _author_name
+    _author_name,
+    publish
   } = event;
   if (!element_name) {
     rs.code = -2;
@@ -140,7 +141,8 @@ exports.main = async (event, context) => {
       row4:checkPicUrl(row4),
       tian:checkPicUrl(tian),
       _author_avatar,
-      _author_name
+      _author_name,
+      publish:false
     }
   }).then(add_rs => {
     console.log(add_rs);
