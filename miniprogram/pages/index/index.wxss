@@ -1,5 +1,10 @@
 /* miniprogram/pages/index/index.wxss */
 /* 标题 */
+.tit{
+  font-weight: 900;
+  font-size: 40rpx;
+  color: #fff;
+}
 .content {
   position: fixed;
   height: 100%;
@@ -17,7 +22,6 @@
 }
 
 .method {
-  margin-top: 20rpx;
   display: flex;
   justify-content: center;
 }
