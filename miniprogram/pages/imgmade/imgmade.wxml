@@ -1,13 +1,11 @@
 <navbar delta="100">美化二维码</navbar>
 <contain>
-  <view class="tit">一、上传黑白二维码：</view>
-  <view class="tip">٩(๑❛ᴗ❛๑)۶一定是要清晰能识别的<text class="tip-key">"黑白"</text>二维码哦～</view>
-  <view class="tip">(╬◣д◢)：否则这辈子都不可能得到我！</view>
+  <view class="tit">一、上传二维码：</view>
   <view class="upload-img" bindtap="uploadimg">
     <icon wx:if="{{!qrinfo.img}}" type="add" round />
     <image wx:else mode="aspectFit" src="{{qrinfo.img}}"></image>
   </view>
-  <view class="tit">二、请选择二维码风格：</view>
+  <view class="tit">二、选择风格：</view>
   <view class='content'>
     <view bindtap="goqrlist" wx:if="{{styleInfo!=null}}" class="item-qr">
       <styleitem cover="{{styleInfo.cover}}" avatar="{{styleInfo._author_avatar}}" username="{{styleInfo._author_name}}"
@@ -36,5 +34,6 @@
   </view>
 </popbox>
 <popbox wx:if="{{pbtip}}" bind:close="close">
-{{tip}}
+  <missbox wx:if="{{checkqrimg}}" dark type="loading" tit="正在检验二维码中٩(๑❛ᴗ❛๑)۶"></missbox>
+  <view wx:else> {{tip}}</view>
 </popbox>

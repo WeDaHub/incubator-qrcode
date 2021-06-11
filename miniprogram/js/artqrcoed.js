@@ -1,6 +1,5 @@
 // import drawQrcode from './weapp.qrcode.min.js';
 import QRCode from './getqrcode.js';
-import QRDecode from './decode.js';
 
 var datalist = [];
 var datacol = null;
@@ -15,8 +14,7 @@ function getqrcode(qrinfo, imginfo) {
       colorDark: "black",
       colorLight: "transparent",
     });
-    var qrcode=qrcodedata._oQRCode.modules;
-    console.log(qrcode,"???")
+    var qrcode = qrcodedata._oQRCode.modules;
     var array = [];
     var n = 0;
     for (let i = 0; i < qrcode.length; i++) {
@@ -44,25 +42,9 @@ function getqrcode(qrinfo, imginfo) {
     datacol = qrcode.length;
     unit = (qrinfo.size / datacol).toFixed(2);
     var cyt = wx.createCanvasContext(qrinfo.canvasid);
-    cyt.clearRect(0,0,qrinfo.size, qrinfo.size);
+    cyt.clearRect(0, 0, qrinfo.size, qrinfo.size);
     beginDraw(imginfo, cyt);
     resolve()
-  })
-}
-
-function changeqrcode(qrinfo, imginfo) {
-  return new Promise((resolve, reject) => {
-    // 解析二维码
-    var cyt = wx.createCanvasContext(qrinfo.canvasid)
-    cyt.drawImage(qrinfo.img, 0, 0, qrinfo.size, qrinfo.size);
-    cyt.draw();
-    var gettext = getdataimg(qrinfo);
-    gettext.then((res) => {
-      qrinfo.text = res;
-      getqrcode(qrinfo, imginfo).then(() => {
-        resolve();
-      })
-    })
   })
 }
 
@@ -428,6 +410,5 @@ function count1(cyt, img) {
   }
 }
 export default {
-  getqrcode,
-  changeqrcode
+  getqrcode
 };
