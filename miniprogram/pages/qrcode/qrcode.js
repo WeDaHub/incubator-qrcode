@@ -1,7 +1,5 @@
 // miniprogram/pages/qrcode/qrcode.js
 import qrcode from '../../js/artqrcoed.js'
-var app = getApp();
-
 Page({
 
     /**
@@ -94,43 +92,46 @@ Page({
                     // 上传单个图片
                     that.uploadSingleImg(data).then(imgfileId => {
                         // 扫码识别 s
-                        app.gettoken(imgfileId).then(token => {
-                            app.getimg(token, imgfileId).then(img => {
-                                app.scanqrcode(img, token).then(res => {
-                                    console.log(res, "????")
-                                    // 扫码结果
-                                    var qrdata = res.data.code_results;
-                                    if (qrdata.length > 0) {
-                                        var qrimg = `qrinfo.img`
-                                        var qrtext = `qrinfo.text`
-                                        var text = qrdata[0].data;
-                                        that.setData({
-                                            [qrimg]: imgurl,
-                                            [qrtext]: text
-                                        })
-                                        wx.setStorage({
-                                            key: "qrimg",
-                                            data: imgurl
-                                        })
-                                        wx.setStorage({
-                                            key: "qrtxt",
-                                            data: text
-                                        })
-                                        that.setData({
-                                            pbtip: false,
-                                            checkqrimg: false,
-                                            tip: "٩(๑❛ᴗ❛๑)۶"
-                                        })
-                                    } else {
-                                        that.setData({
-                                            pbimg: false,
-                                            pbtip: true,
-                                            checkqrimg: false,
-                                            tip: "我怀疑你上传的是假的二维码(╥╯^╰╥)，请重新上传一个真的好不？"
-                                        })
-                                    }
-                                })
-                            })
+                        wx.cloud.callFunction({
+                            // 需调用的云函数名
+                            name: 'decode',
+                            // 传给云函数的参数
+                            data: {
+                                fileid: imgfileId
+                            },
+                            // 成功回调
+                            complete: (res) => {
+                                var qrdata = res.result;
+                                if (qrdata.length > 0) {
+                                    var qrimg = `qrinfo.img`
+                                    var qrtext = `qrinfo.text`
+                                    var text = qrdata[0].data;
+                                    that.setData({
+                                        [qrimg]: imgurl,
+                                        [qrtext]: text
+                                    })
+                                    wx.setStorage({
+                                        key: "qrimg",
+                                        data: imgurl
+                                    })
+                                    wx.setStorage({
+                                        key: "qrtxt",
+                                        data: text
+                                    })
+                                    that.setData({
+                                        pbtip: false,
+                                        checkqrimg: false,
+                                        tip: "٩(๑❛ᴗ❛๑)۶"
+                                    })
+                                } else {
+                                    that.setData({
+                                        pbimg: false,
+                                        pbtip: true,
+                                        checkqrimg: false,
+                                        tip: "我怀疑你上传的是假的二维码(╥╯^╰╥)，请重新上传一个真的好不？"
+                                    })
+                                }
+                            }
                         })
                         // 扫码识别 e
                     });

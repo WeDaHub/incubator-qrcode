@@ -1,6 +1,5 @@
 // miniprogram/pages/qrlist/qrlist.js
 import qrcode from '../../js/artqrcoed.js';
-var app = getApp();
 
 Page({
 
@@ -20,7 +19,7 @@ Page({
     pbqr: false,
     pbtip: false,
     tip: "",
-    checkqrimg:false
+    checkqrimg: false
   },
   addlikenum(id) {
     wx.cloud.callFunction({
@@ -69,7 +68,7 @@ Page({
     })
   },
   async madeImg() {
-    console.log(this.data.qrinfo,"????")
+    console.log(this.data.qrinfo, "????")
     var that = this;
     if (this.data.qrinfo.img == '') {
       this.setData({
@@ -143,7 +142,7 @@ Page({
       success: function (res) {
         that.setData({
           pbtip: true,
-          checkqrimg:true,
+          checkqrimg: true,
           tip: "正在检验二维码中٩(๑❛ᴗ❛๑)۶"
         })
         var imgurl = res.tempFilePaths[0];
@@ -152,41 +151,48 @@ Page({
           // 上传单个图片
           that.uploadSingleImg(data).then(imgfileId => {
             // 扫码识别 s
-            app.gettoken(imgfileId).then(token => {
-              app.getimg(token, imgfileId).then(img => {
-                app.scanqrcode(img, token).then(res => {
-                  // 扫码结果
-                  var qrdata = res.data.code_results;
-                  if (qrdata.length > 0) {
-                    var qrimg = `qrinfo.img`
-                    var qrtext = `qrinfo.text`
-                    var text=qrdata[0].data;
-                    that.setData({
-                      [qrimg]: imgurl,
-                      [qrtext]: text
-                    })
-                    wx.setStorage({
-                      key: "qrimg",
-                      data: imgurl
-                    })
-                    wx.setStorage({
-                      key: "qrtxt",
-                      data: text
-                    })
-                    that.setData({
-                      pbtip: false,
-                      checkqrimg:false,
-                      tip: "٩(๑❛ᴗ❛๑)۶"
-                    })
-                  }else{
-                      that.setData({
-                        pbtip: true,
-                        checkqrimg:false,
-                        tip: "我怀疑你上传的是假的二维码(╥╯^╰╥)，请重新上传一个真的好不？"
-                      })
-                  }
-                })
-              })
+            wx.cloud.callFunction({
+              // 需调用的云函数名
+              name: 'decode',
+              // 传给云函数的参数
+              data: {
+                fileid: imgfileId
+              },
+              // 成功回调
+              complete: (res) => {
+                var qrdata = res.result;
+                if (qrdata.length > 0) {
+                  var qrimg = `qrinfo.img`
+                  var qrtext = `qrinfo.text`
+                  var text = qrdata[0].data;
+                  that.setData({
+                    [qrimg]: imgurl,
+                    [qrtext]: text
+                  })
+                  wx.setStorage({
+                    key: "qrimg",
+                    data: imgurl
+                  })
+                  wx.setStorage({
+                    key: "qrtxt",
+                    data: text
+                  })
+                  that.setData({
+                    pbtip: false,
+                    checkqrimg: false,
+                    tip: "٩(๑❛ᴗ❛๑)۶"
+                  })
+                } else {
+                  var qrimg = `qrinfo.img`
+
+                  that.setData({
+                    pbtip: true,
+                    checkqrimg: false,
+                    tip: "我怀疑你上传的是假的二维码(╥╯^╰╥)，请重新上传一个真的好不？",
+                    [qrimg]:''
+                  })
+                }
+              }
             })
             // 扫码识别 e
           });
