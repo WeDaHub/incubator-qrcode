@@ -1,4 +1,16 @@
 page{
-  background: url('https://7869-xier-8gptzwg769125208-1258411243.tcb.qcloud.la/assets/bg.png?sign=6724d7d332d1e78b3e2fb7f505cd9fb9&t=1622095759'),#7F36FF;
-  background-size: contain;
+  background: url('https://7869-xier-8gptzwg769125208-1258411243.tcb.qcloud.la/assets/bg.png?sign=5aa09eff50836205f5eb23728c3e91ce&t=1623425293'),#8EC590;
+  background-size: cover;
+  background-position: bottom;
+  /* 以下是颜色token */
+  /* 主题色 */
+  /* 主色 */
+  --brand-1: #FFE142;
+  --brand-2: #D098FF;
+  --box-shadow:4rpx 4rpx 0rpx #419646;
+  --tip-1:#286432;
+
+  --size-txt-base:32rpx;
+  --size-txt-1:25rpx;
+  --size-txt-2:20rpx;
 }

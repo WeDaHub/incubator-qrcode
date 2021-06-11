@@ -19,7 +19,7 @@
       </cell>
     </view>
   </view>
-  <view class="tip">(╬◣д◢)：由于素材由网友提供，生成以后请用手机扫描验证一下是否能正常识别出内容哦～。</view>
+  <view class="tip">生成以后请用手机扫描验证是否能识别</view>
   <btn bindtap="madeImg" primary block>生成</btn>
 </contain>
 <popbox wx:if="{{pbqr}}" bind:close="close">

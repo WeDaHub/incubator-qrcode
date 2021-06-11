@@ -1,4 +1,4 @@
-<navbar pagefrom="myqrlist">素材生成</navbar>
+<navbar pagefrom="myqrlist">自定义素材</navbar>
 <contain>
   <view class="opt">
     <view class="user" bindtap="getUserProfile">
@@ -14,10 +14,6 @@
           <image mode="aspectFit" src="{{item.temporary?item.temporary:item.url}}"></image>
         </view>
       </cell>
-      <view class="item-name">
-        <!-- <text>{{item.name}}</text> -->
-        <!-- <text wx:if="{{index<=2}}">*</text> -->
-      </view>
     </view>
   </view>
   <btn primary block bindtap="showpbupload">下一步</btn>
@@ -35,6 +31,7 @@
         <image mode="aspectFit" src="{{item.temporary}}"></image>
       </view>
     </view>
+    <view class="txt">ヾ(✿ﾟ▽ﾟ)ノ好看的风格，则有机会在社区中展示哦～</view>
     <view class="opt">
       <btn primary bindtap="upload" block>上传素材包</btn>
     </view>

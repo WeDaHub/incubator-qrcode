@@ -21,9 +21,9 @@
     <view class="tip">(▼へ▼メ)一定要按照比例设计导出图片哦～</view>
     <image class="img-long" mode="widthFix" src="../../images/upload/rule-3.png"></image>
     <image class="img-long" mode="widthFix" src="../../images/upload/rules.png"></image>
-    <view class="tip">建议最小单元50 * 50px，分辨率：300</view>
+    <view class="tip">建议最小码点尺寸为：50 * 50px，分辨率：300</view>
     <view class="txt">
-      设计的规则，保证设计面在码中心9分之一圆心上即可。
+      注意：设计时要保证设计面覆盖在码点中心即9分之一圆心上。
     </view>
     <image class="img-short" mode="widthFix" src="cloud://xier-8gptzwg769125208.7869-xier-8gptzwg769125208-1258411243/assets/design1.gif"></image>
     <view class="txt">
@@ -39,7 +39,7 @@
     <image class="img-short" mode="widthFix" src="../../images/upload/demo1.png"></image>
     <view class="tip">(╬◣д◢)必须上传封面图、码眼、单元素图片哦</view>
     <view class="txt">是不是很简单，快去尝试一下吧，制作自己的专属艺术二维码。最后在我的界面中，选中你刚才上传的素材包，就可以生成漂亮的艺术二维码啦～</view>
-    <view class="tip">合作与建议：可以添加微信”mengmeng-na“与我联系哦～</view>
+    <view class="tip">合作与建议：可以添加微信“mengmeng-na”与我联系哦～</view>
     <btn primary bindtap="goupload">现在去制作</btn>
   </view>
 </contain>

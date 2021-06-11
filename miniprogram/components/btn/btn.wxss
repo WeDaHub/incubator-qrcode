@@ -2,7 +2,7 @@
 .btn {
   display: inline-block;
   border: 4rpx solid #000000;
-  box-shadow: 4rpx 4rpx 0rpx #D098FF;
+  box-shadow: var(--box-shadow);
   border-radius: 40rpx;
   font-size: 36rpx;
   text-align: center;

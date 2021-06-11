@@ -43,7 +43,7 @@
   border-radius: 10rpx;
   border: 4rpx solid #000000;
   box-sizing: border-box;
-  box-shadow: 4rpx 4rpx 0rpx #D098FF;
+  box-shadow: var(--box-shadow);
   background: #fff;
   font-size: 32rpx;
   font-weight: bold;

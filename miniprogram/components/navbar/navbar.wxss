@@ -22,7 +22,7 @@
   border: 4rpx solid #18191F;
   box-sizing: border-box;
   border-radius: 70rpx;
-  box-shadow: 4rpx 4rpx 0rpx #D098FF;
+  box-shadow: var(--box-shadow);
 }
 
 .nav-box .nav-icon::after {
