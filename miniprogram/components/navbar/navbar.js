@@ -44,7 +44,6 @@ Component({
               });
           },
       });
-      // console.log(this.navBackBgHeight,this.customBarTitleTop,"??")
   },
   /**
    * 组件的方法列表

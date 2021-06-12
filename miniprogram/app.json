@@ -1,13 +1,12 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/qrcode/qrcode",
-    "pages/components/components",
-    "pages/qrlist/qrlist",
-    "pages/myqrlist/myqrlist",
-    "pages/upload/upload",
     "pages/txtmade/txtmade",
     "pages/imgmade/imgmade",
+    "pages/qrlist/qrlist",
+    "pages/myqrlist/myqrlist",
+    "pages/qrcode/qrcode",
+    "pages/upload/upload",
     "pages/designrule/designrule",
     "pages/checkqr/checkqr"
   ],
@@ -15,7 +14,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "二维艺术码",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },

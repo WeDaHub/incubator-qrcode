@@ -1,5 +1,6 @@
 // miniprogram/pages/qrlist/qrlist.js
 import qrcode from '../../js/artqrcoed.js';
+import common from '../../js/common.js';
 
 Page({
 
@@ -68,7 +69,6 @@ Page({
     })
   },
   async madeImg() {
-    console.log(this.data.qrinfo, "????")
     var that = this;
     if (this.data.qrinfo.img == '') {
       this.setData({
@@ -99,40 +99,6 @@ Page({
       });
     });
   },
-  // 图片转base64
-  urlTobase64(imgPath) {
-    return new Promise((resolve, reject) => {
-      //读取图片的base64文件内容
-      wx.getFileSystemManager().readFile({
-        filePath: imgPath, //选择图片返回的相对路径
-        encoding: 'base64', //编码格式
-        success: (res) => {
-          var data = res.data;
-          resolve(data)
-        }, //成功的回调
-        fail: (err) => {
-          reject(err)
-        }
-      })
-    })
-  },
-  // 上传单张图片
-  uploadSingleImg(base64) {
-    return new Promise((resolve, reject) => {
-      wx.cloud.callFunction({
-        // 需调用的云函数名
-        name: 'uploadImg',
-        // 传给云函数的参数
-        data: {
-          file_data: base64
-        },
-        // 成功回调
-        complete: (res) => {
-          resolve(res.result.fileID)
-        }
-      })
-    })
-  },
   uploadimg() {
     var that = this;
     wx.chooseImage({
@@ -147,9 +113,9 @@ Page({
         })
         var imgurl = res.tempFilePaths[0];
         // 图片转base64
-        that.urlTobase64(imgurl).then(data => {
+        common.urlTobase64(imgurl).then(data => {
           // 上传单个图片
-          that.uploadSingleImg(data).then(imgfileId => {
+          common.uploadSingleImg(data).then(imgfileId => {
             // 扫码识别 s
             wx.cloud.callFunction({
               // 需调用的云函数名
@@ -243,7 +209,6 @@ Page({
     this.setData({
       imginfo: imgs
     })
-    console.log(this.data.imginfo, this.data.styleInfo)
   },
   /**
    * 生命周期函数--监听页面加载
@@ -274,54 +239,5 @@ Page({
         }
       })
     }
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

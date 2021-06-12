@@ -26,11 +26,9 @@ Component({
    */
   methods: {
     prepage() {
-      // console.log("pre")
       this.triggerEvent('prepage', false);
     },
     nextpage() {
-      // console.log("next")
       this.triggerEvent('nextpage', false);
     },
   }

@@ -1,4 +1,6 @@
 // miniprogram/pages/upload/upload.js
+import common from '../../js/common.js';
+
 Page({
 
   /**
@@ -225,40 +227,6 @@ Page({
       url: '/pages/designrule/designrule'
     })
   },
-  // 图片转base64
-  urlTobase64(imgPath) {
-    return new Promise((resolve, reject) => {
-      //读取图片的base64文件内容
-      wx.getFileSystemManager().readFile({
-        filePath: imgPath, //选择图片返回的相对路径
-        encoding: 'base64', //编码格式
-        success: (res) => {
-          var data = res.data;
-          resolve(data)
-        }, //成功的回调
-        fail: (err) => {
-          reject(err)
-        }
-      })
-    })
-  },
-  // 上传单张图片
-  uploadSingleImg(base64) {
-    return new Promise((resolve, reject) => {
-      wx.cloud.callFunction({
-        // 需调用的云函数名
-        name: 'uploadImg',
-        // 传给云函数的参数
-        data: {
-          file_data: base64
-        },
-        // 成功回调
-        complete: (res) => {
-          resolve(res.result.fileID)
-        }
-      })
-    })
-  },
   // 选择单张图片
   chooseSingleImg(e) {
     var that = this;
@@ -271,9 +239,9 @@ Page({
         for (let i = 0; i < that.data.list.length; i++) {
           if (that.data.list[i].name == name) {
             // 转成base64
-            that.urlTobase64(res.tempFilePaths[0]).then(data => {
+            common.urlTobase64(res.tempFilePaths[0]).then(data => {
               // 上传图片
-              that.uploadSingleImg(data).then(imgfileId => {
+              common.uploadSingleImg(data).then(imgfileId => {
                 // 上传成功后
                 var temporary = `list[${i}].temporary`;
                 var fileId = `list[${i}].fileId`;
@@ -312,55 +280,6 @@ Page({
         })
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   },
   getUserProfile(e) {
     return new Promise((resolve, reject) => {
