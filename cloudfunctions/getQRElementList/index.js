@@ -60,11 +60,11 @@ exports.main = async (event, context) => {
   }
 
   //排序
-  if (order === 'like') {
-    db_process = await db_process.orderBy('_like', 'desc');
-  } else {
+  // if (order != 'like') {
+  //   db_process = await db_process.orderBy('_like', 'desc');
+  // } else {
     db_process = await db_process.orderBy('_upload_time', 'asc');
-  }
+  // }
 
   // 先取出集合记录总数
   const countResult = await db_process.count();
