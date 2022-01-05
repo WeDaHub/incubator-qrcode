@@ -3,7 +3,7 @@
 ![image.png](./readme/toolcode.jpg)
 
 - 队伍名称：喜儿战队
-- 队伍成员：xierchen，bigbinhe
+- 队伍成员：[Chenyating](https://github.com/Chenyating)，[bigbinhe](https://github.com/xbin0316)
 
 ## 作品简介：
 当我们在日常生活中总会出现各种各样的二维码，但黑白的颜色放置在绚丽的海报上，就会显得奇奇怪怪。也会降低人们扫码的欲望。
