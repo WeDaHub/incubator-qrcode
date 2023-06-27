@@ -33,7 +33,30 @@
       })
     }
 
+    async function checkText(text) {
+      return new Promise((resolve, reject) => {
+        // 先鉴黄
+        wx.cloud.callFunction({
+          // 需调用的云函数名
+          name: 'checkeText',
+          // 传给云函数的参数
+          data: {
+            txt: text
+          },
+          // 成功回调
+          complete: (res) => {
+            resolve(res.result); // 将结果传递给 resolve 方法
+          },
+          // 失败回调
+          fail: (error) => {
+            reject(error); // 如果有错误，传递给 reject 方法
+          }
+        });
+      });
+    }
+    
     export default {
       urlTobase64,
-      uploadSingleImg
+      uploadSingleImg,
+      checkText
     }

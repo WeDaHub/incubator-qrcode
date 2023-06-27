@@ -1,6 +1,6 @@
 <navbar delta="100">生成二维码</navbar>
 <contain>
-  <view class="tit">一、输入内容：</view>
+  <view class="tit">一、输入文明用语内容：</view>
   <textarea bindinput="gettxt" class="input" value="{{qrinfo.text}}" placeholder="٩(๑❛ᴗ❛๑)۶：文字,网站都可以哟～" maxlength="300"></textarea>
   <view class="tit">二、选择风格：</view>
   <view class='content'>
