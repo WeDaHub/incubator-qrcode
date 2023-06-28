@@ -1,5 +1,6 @@
 // miniprogram/pages/qrlist/qrlist.js
 import qrcode from '../../js/artqrcoed.js'
+import common from '../../js/common.js';
 
 Page({
 
@@ -67,35 +68,49 @@ Page({
     })
   },
   async madeTxt() {
-    var that = this;
     if (this.data.qrinfo.text == '') {
       this.setData({
         tip: '(▼へ▼メ)请输入文字吖～',
         pbtip: true
-      })
-      return
+      });
+      return;
     }
+  
     if (this.data.styleInfo == null) {
       this.setData({
         tip: 'o(▼皿▼メ;)o选择二维码风格吖～',
         pbtip: true
-      })
-      return
-    }
-    this.setData({
-      pbimg: false,
-      pbqr: true
-    })
-    await this.manageimgs();
-    this.getsize().then(() => {
-      this.addlikenum(this.data.styleInfo._id);
-      qrcode.getqrcode(this.data.qrinfo, this.data.imginfo).then(() => {
-        that.setData({
-          ifmadeqr: true
-        })
       });
-    });
-  },
+      return;
+    }
+  
+    try {
+      const res = await common.checkText(this.data.qrinfo.text);
+      if (res === 'pass') {
+        this.setData({
+          pbimg: false,
+          pbqr: true
+        });
+  
+        await this.manageimgs();
+        await this.getsize();
+        this.addlikenum(this.data.styleInfo._id);
+        await qrcode.getqrcode(this.data.qrinfo, this.data.imginfo);
+  
+        this.setData({
+          ifmadeqr: true
+        });
+      } else {
+        this.setData({
+          tip: '(▼へ▼メ)文明有礼貌,不要乱发敏感词！～',
+          pbtip: true
+        });
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+,  
   gettxt(e) {
     var txt = `qrinfo.text`;
     this.setData({

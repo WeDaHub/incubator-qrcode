@@ -149,6 +149,21 @@ Page({
     },
     madeImg() {
         var that = this;
+        // 先鉴黄
+        wx.cloud.callFunction({
+          // 需调用的云函数名
+          name: 'checkeText',
+          // 传给云函数的参数
+          data: {
+            txt:that.qrinfo.text
+          },
+          // 成功回调
+          complete: (res) => {
+
+          }
+        })
+        console.log("输入文字")
+        return ;
         this.setData({
             pbimg: false,
             pbqr: true

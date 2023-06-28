@@ -33,7 +33,7 @@
 </popbox>
 <popbox wx:if="{{pbtxt}}" bind:close="close">
   <view class="popbox">
-    <view class="tit">请输入文字内容：</view>
+    <view class="tit">请输入文字内容：文明使用语句，已经做了敏感词处理</view>
     <textarea bindinput="gettxt" class="input" placeholder="输入二维码文字内容" maxlength="300rpx"></textarea>
     <view class="opt" wx:if="{{qrinfo.text!=''}}">
       <btn primary bindtap="madeTxt">生成二维码</btn>
